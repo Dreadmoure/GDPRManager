@@ -18,6 +18,8 @@ namespace GDPRManager.ComponentPattern
     public class Player : Component, IGameListener
     {
         #region fields
+        //skal indeholde en score af typen int gerne en property med get set
+
         private SpriteRenderer spriteRenderer;
 
         private float speed;
