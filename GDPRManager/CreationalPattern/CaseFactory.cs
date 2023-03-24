@@ -16,18 +16,18 @@ namespace GDPRManager.CreationalPattern
     /// <summary>
     /// class for making minerals of different types
     /// </summary>
-    public class MineralFactory
+    public class CaseFactory
     {
         #region singleton
-        private static MineralFactory instance;
+        private static CaseFactory instance;
 
-        public static MineralFactory Instance
+        public static CaseFactory Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new MineralFactory();
+                    instance = new CaseFactory();
                 }
                 return instance;
             }
