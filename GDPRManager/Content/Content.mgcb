@@ -32,7 +32,7 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/ApproveButton.png
 
-#begin Sprites/Background.png
+#begin Sprites/BackgroundV2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -42,7 +42,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Sprites/Background.png
+/build:Sprites/BackgroundV2.png
 
 #begin Sprites/BulletinBoard.png
 /importer:TextureImporter
