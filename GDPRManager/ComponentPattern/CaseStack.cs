@@ -18,7 +18,7 @@ namespace GDPRManager.ComponentPattern
             spriteRenderer.SetSprite("Sprites\\CaseStack");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2.4f, GameWorld.ScreenSize.Y / 1.1f);
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 6f, GameWorld.ScreenSize.Y / 1.5f);
         }
 
         public void Onclick()

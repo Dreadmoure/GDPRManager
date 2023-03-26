@@ -17,8 +17,8 @@ namespace GDPRManager.ComponentPattern
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
             spriteRenderer.SetSprite("Sprites\\StickyNote");
             spriteRenderer.LayerDepth = 0.9f;
-            spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.4f, GameWorld.ScreenSize.Y / 2.3f);
+            spriteRenderer.Scale = 0.7f;
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.2f, GameWorld.ScreenSize.Y / 3f);
         }
 
         public void Update()
