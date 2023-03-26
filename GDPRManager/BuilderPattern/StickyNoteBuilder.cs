@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
-    /// <summary>
-    /// class for PlayerBuilder
-    /// </summary>
-    public class PlayerBuilder : IBuilder
+    public class StickyNoteBuilder : IBuilder
     {
         private GameObject gameObject;
 
-        /// <summary>
-        /// creates a new gameobject
-        /// </summary>
         public void BuildGameObject()
         {
             gameObject = new GameObject();
@@ -29,18 +23,13 @@ namespace GDPRManager.BuilderPattern
         /// </summary>
         private void BuildComponents()
         {
-            Player player = (Player)gameObject.AddComponent(new Player());
-
+            StickyNote stickyNote = (StickyNote)gameObject.AddComponent(new StickyNote());
+            gameObject.AddComponent(new SpriteRenderer());
         }
 
-        /// <summary>
-        /// returns the object we built
-        /// </summary>
-        /// <returns>gameobject which was just built out of components</returns>
         public GameObject GetResult()
         {
             return gameObject;
         }
-
     }
 }
