@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    //enum which holds moods
-    public enum Mood { Angry, Neutral, Happy }
 
     /// <summary>
     /// class for the player
@@ -19,16 +17,14 @@ namespace GDPRManager.ComponentPattern
     public class Player : Component, IGameListener
     {
         #region fields
-        //skal indeholde en score af typen int gerne en property med get set
-
-        private MouseState currentMouse;
-        private MouseState previousMouse;
-        public bool isClicked;
+        //private MouseState currentMouse;
+        //private MouseState previousMouse;
+        //public bool isClicked;
 
         #endregion
 
         #region properties
-
+        public int Score { get; set; }
         #endregion
 
         #region methods
@@ -58,25 +54,25 @@ namespace GDPRManager.ComponentPattern
             //handles input
             InputHandler.Instance.Execute(this);
 
-            previousMouse = currentMouse;
-            currentMouse = Mouse.GetState();
+            //previousMouse = currentMouse;
+            //currentMouse = Mouse.GetState();
 
-            Rectangle mouseRectangle = new Rectangle(currentMouse.X, currentMouse.Y, 1, 1);
+            //Rectangle mouseRectangle = new Rectangle(currentMouse.X, currentMouse.Y, 1, 1);
 
-            if (mouseRectangle.Intersects(GetRectangle))
-            {
-                ColorShift();
+            //if (mouseRectangle.Intersects(GetRectangle))
+            //{
+            //    ColorShift();
 
-                if (_currentMouse.LeftButton == ButtonState.Released && _previousMouse.LeftButton == ButtonState.Pressed)
-                {
-                    isClicked = true;
-                    color.A = 255;
-                }
-            }
-            else if (color.A < 255)
-            {
-                color.A += 3;
-            }
+            //    if (_currentMouse.LeftButton == ButtonState.Released && _previousMouse.LeftButton == ButtonState.Pressed)
+            //    {
+            //        isClicked = true;
+            //        color.A = 255;
+            //    }
+            //}
+            //else if (color.A < 255)
+            //{
+            //    color.A += 3;
+            //}
 
             //if clicked do something
 
