@@ -96,6 +96,15 @@ namespace GDPRManager
             //Player is added
             Director playerDirector = new Director(new PlayerBuilder());
             gameObjects.Add(playerDirector.Construct());
+            //background is added
+            Director backgroundDirector = new Director(new BackgroundBuilder());
+            gameObjects.Add(backgroundDirector.Construct());
+            //caseStack is added
+            Director caseStackDirector = new Director(new CaseStackBuilder());
+            gameObjects.Add(caseStackDirector.Construct());
+            //stickynote is added
+            Director sitckyNoteDirector = new Director(new StickyNoteBuilder());
+            gameObjects.Add(sitckyNoteDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
@@ -113,8 +122,6 @@ namespace GDPRManager
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            //loads font
-            font = Content.Load<SpriteFont>("Fonts\\Font");
 
             //calls start on all gameobjects
             for(int i = 0; i < gameObjects.Count; i++)
@@ -179,21 +186,6 @@ namespace GDPRManager
             {
                 gameObjects[i].Draw(_spriteBatch);
             }
-
-            //we measure strings to to get the origin
-            float ammoCountOriginX = font.MeasureString(ammoCounterText).X / 2;
-            float ammoCountOriginY = font.MeasureString(ammoCounterText).Y / 2;
-
-            float scoreTextOriginX = font.MeasureString(scoreText).X / 2;
-            float scoreTextOriginY = font.MeasureString(scoreText).Y / 2;
-
-            float scoreMultiplierOriginX = font.MeasureString(scoreMultiplierText).X / 2;
-            float scoreMultiplierOriginY = font.MeasureString(scoreMultiplierText).Y / 2;
-
-            //we draw string to the screen
-            _spriteBatch.DrawString(font, ammoCounterText, new Vector2(ScreenSize.X / 2.25f, ScreenSize.Y / 1.1f), Color.Black, 0, new Vector2(ammoCountOriginX, ammoCountOriginY), 2f, SpriteEffects.None, 1);
-            _spriteBatch.DrawString(font, scoreText, new Vector2(ScreenSize.X / 2, ScreenSize.Y / 15f), Color.Black, 0, new Vector2(scoreTextOriginX, scoreTextOriginY), 2f, SpriteEffects.None, 1);
-            _spriteBatch.DrawString(font, scoreMultiplierText, new Vector2(ScreenSize.X / 3.18f, ScreenSize.Y / 1.06f), Color.Black, 0, new Vector2(scoreMultiplierOriginX, scoreMultiplierOriginY), 2f, SpriteEffects.None, 1);
 
             //we stop drawing
             _spriteBatch.End();
