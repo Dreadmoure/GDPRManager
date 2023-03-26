@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GDPRManager.ComponentPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,16 +7,32 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
+    /// <summary>
+    /// Class for building the Background
+    /// </summary>
     public class BackgroundBuilder : IBuilder
     {
+        private GameObject gameObject;
+
         public void BuildGameObject()
         {
-            throw new NotImplementedException();
+            gameObject = new GameObject();
+
+            BuildComponents();
+        }
+
+        /// <summary>
+        /// adds components to the gameobject
+        /// </summary>
+        private void BuildComponents()
+        {
+            Background ground = (Background)gameObject.AddComponent(new Background());
+            gameObject.AddComponent(new SpriteRenderer());
         }
 
         public GameObject GetResult()
         {
-            throw new NotImplementedException();
+            return gameObject;
         }
     }
 }

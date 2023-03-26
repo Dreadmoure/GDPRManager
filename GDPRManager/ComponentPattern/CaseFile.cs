@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 
 namespace GDPRManager.ComponentPattern
 {
-    /// <summary>
-    /// class for Background component
-    /// </summary>
-    public class Background : Component
+    public class CaseFile : Component
     {
         /// <summary>
         /// sets sprite and position
@@ -18,10 +15,12 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\Background");
-            spriteRenderer.LayerDepth = 0.1f;
+            spriteRenderer.SetSprite("Sprites\\CaseStack");
+            spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2, GameWorld.ScreenSize.Y /2);
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
         }
+        
+
     }
 }

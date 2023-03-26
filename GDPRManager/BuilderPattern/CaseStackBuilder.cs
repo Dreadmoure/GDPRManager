@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GDPRManager.ComponentPattern;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,27 @@ namespace GDPRManager.BuilderPattern
 {
     public class CaseStackBuilder : IBuilder
     {
+        private GameObject gameObject;
+
         public void BuildGameObject()
         {
-            throw new NotImplementedException();
+            gameObject = new GameObject();
+
+            BuildComponents();
+        }
+
+        /// <summary>
+        /// adds components to the gameobject
+        /// </summary>
+        private void BuildComponents()
+        {
+            CaseStack caseStack = (CaseStack)gameObject.AddComponent(new CaseStack());
+            gameObject.AddComponent(new SpriteRenderer());
         }
 
         public GameObject GetResult()
         {
-            throw new NotImplementedException();
+            return gameObject;
         }
     }
 }

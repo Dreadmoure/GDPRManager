@@ -11,30 +11,28 @@ namespace GDPRManager.CreationalPattern
     /// <summary>
     /// used to hold types of minerals
     /// </summary>
-    public enum MineralType { Red, Green }
+    public enum CaseType { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten }
 
     /// <summary>
     /// class for making minerals of different types
     /// </summary>
-    public class CaseFactory
+    public class CaseFileFactory
     {
         #region singleton
-        private static CaseFactory instance;
+        private static CaseFileFactory instance;
 
-        public static CaseFactory Instance
+        public static CaseFileFactory Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new CaseFactory();
+                    instance = new CaseFileFactory();
                 }
                 return instance;
             }
         }
         #endregion
-
-        private Random random = new Random();
 
         /// <summary>
         /// Method for creating a gameobject
@@ -46,26 +44,24 @@ namespace GDPRManager.CreationalPattern
             GameObject gameObject = new GameObject();
 
             SpriteRenderer spriteRenderer = gameObject.AddComponent(new SpriteRenderer()) as SpriteRenderer;
-            gameObject.Transform.Position = new Vector2(random.Next(0, GameWorld.Instance.GraphicsDevice.Viewport.Width), -20);
-            gameObject.AddComponent(new Collider());
-            Collider collider = (Collider)gameObject.AddComponent(new Collider());
-            gameObject.Tag = "Mineral";
-            spriteRenderer.LayerDepth = 0.4f;
+            gameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X /2, GameWorld.ScreenSize.Y /2);
+            gameObject.Tag = "Case";
+            spriteRenderer.LayerDepth = 0.8f;
             spriteRenderer.Scale = 1f;
+            spriteRenderer.SetSprite("Sprites\\CaseFile");
 
 
-            Mineral mineral;
+            CaseFile caseFile;
 
 
             switch (type)
             {
-                case MineralType.Green:
-                    spriteRenderer.SetSprite("Minerals\\RockWater_2V3");
-                    mineral = gameObject.AddComponent(new Mineral(50)) as Mineral;
+                case CaseType.One:
+                    caseFile = gameObject.AddComponent(new CaseFile()) as CaseFile;
+                    //needs a string for the text that can vary
                     break;
-                case MineralType.Red:
-                    spriteRenderer.SetSprite("Minerals\\RockWaterV3");
-                    mineral = gameObject.AddComponent(new Mineral(100)) as Mineral;
+                case CaseType.Two:
+                    caseFile = gameObject.AddComponent(new CaseFile()) as CaseFile;
                     break;
             }
             return gameObject;

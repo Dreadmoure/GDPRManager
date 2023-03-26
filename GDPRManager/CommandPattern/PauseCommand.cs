@@ -30,7 +30,7 @@ namespace GDPRManager.CommandPattern
         /// <param name="player">the player we need to execute the method on</param>
         public void Execute(Player player)
         {
-            player.Move(velocity);
+            //player.Move(velocity);
         }
     }
 }

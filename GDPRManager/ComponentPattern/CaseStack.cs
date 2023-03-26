@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,21 @@ namespace GDPRManager.ComponentPattern
 {
     public class CaseStack : Component
     {
-        //array for 10 units of case
-        //texture
+        /// <summary>
+        /// sets sprite and position
+        /// </summary>
+        public override void Start()
+        {
+            SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+            spriteRenderer.SetSprite("Sprites\\CaseStack");
+            spriteRenderer.LayerDepth = 0.7f;
+            spriteRenderer.Scale = 1f;
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2.4f, GameWorld.ScreenSize.Y / 1.1f);
+        }
+
+        public void Onclick()
+        {
+            //do something call resolve case
+        }
     }
 }

@@ -60,8 +60,8 @@ namespace GDPRManager.ComponentPattern
 
             spriteRenderer.Sprite = sprites[0];
 
-            spriteRenderer.LayerDepth = 1f;
-            spriteRenderer.Scale = 0.35f;
+            spriteRenderer.LayerDepth = 0.9f;
+            spriteRenderer.Scale = 0.1f;
         }
 
         /// <summary>

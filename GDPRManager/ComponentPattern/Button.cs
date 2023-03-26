@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class Button : Component
+    public abstract class Button : Component
     {
+        protected string answer;
+
+        #region methods
+        public override void Start()
+        {
+
+        }
+
+        public abstract void Onclick();
+        #endregion
     }
 }
