@@ -96,6 +96,15 @@ namespace GDPRManager
             //Player is added
             Director playerDirector = new Director(new PlayerBuilder());
             gameObjects.Add(playerDirector.Construct());
+            //background is added
+            Director backgroundDirector = new Director(new BackgroundBuilder());
+            gameObjects.Add(backgroundDirector.Construct());
+            //caseStack is added
+            Director caseStackDirector = new Director(new CaseStackBuilder());
+            gameObjects.Add(caseStackDirector.Construct());
+            //stickynote is added
+            Director sitckyNoteDirector = new Director(new StickyNoteBuilder());
+            gameObjects.Add(sitckyNoteDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
