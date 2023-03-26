@@ -1,6 +1,5 @@
 ﻿using GDPRManager.BuilderPattern;
 using GDPRManager.ComponentPattern;
-using GDPRManager.PoolPattern;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -81,7 +80,7 @@ namespace GDPRManager
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
 
-            _graphics.PreferredBackBufferWidth = 900;
+            _graphics.PreferredBackBufferWidth = 1600;
             _graphics.PreferredBackBufferHeight = 900;
 
             ScreenSize = new Vector2(_graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight);
@@ -144,9 +143,7 @@ namespace GDPRManager
                 DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
                 //updates our texts
-                ammoCounterText = $"{player.AmmoCount}x";
                 scoreText = $"Score: {(int)player.Score}";
-                scoreMultiplierText = $"x{player.ScoreMultiplier}";
 
                 //calls update on all gameobjects
                 for (int i = 0; i < gameObjects.Count; i++)
@@ -155,8 +152,8 @@ namespace GDPRManager
                 }
 
                 //spawns enemies and minerals
-                SpawnEnemies();
-                SpawnMinerals();
+                //SpawnEnemies();
+                //SpawnMinerals();
 
                 base.Update(gameTime);
 
@@ -248,12 +245,12 @@ namespace GDPRManager
                 gameObjects.Remove(destroyGameObjects[i]);
                 Collider collider = (Collider)destroyGameObjects[i].GetComponent<Collider>();
 
-                // if gameobject is a projectile, remove the collision event 
-                if(destroyGameObjects[i].GetComponent<Projectile>() != null)
-                {
-                    Projectile projectile = destroyGameObjects[i].GetComponent<Projectile>() as Projectile; 
-                    collider.CollisionEvent.Detach(projectile);
-                }
+                //// if gameobject is a projectile, remove the collision event 
+                //if(destroyGameObjects[i].GetComponent<Projectile>() != null)
+                //{
+                //    Projectile projectile = destroyGameObjects[i].GetComponent<Projectile>() as Projectile; 
+                //    collider.CollisionEvent.Detach(projectile);
+                //}
 
                 if (collider != null)
                 {
@@ -266,41 +263,41 @@ namespace GDPRManager
             newGameObjects.Clear();
         }
 
-        /// <summary>
-        /// method for spawning in enemies
-        /// </summary>
-        private void SpawnEnemies()
-        {
-            lastSpawnEnemy += DeltaTime;
+        ///// <summary>
+        ///// method for spawning in enemies
+        ///// </summary>
+        //private void SpawnEnemies()
+        //{
+        //    lastSpawnEnemy += DeltaTime;
 
-            if(lastSpawnEnemy > 2)
-            {
-                GameObject enemy = EnemyPool.Instance.GetObject();
-                enemy.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), -200);
+        //    if(lastSpawnEnemy > 2)
+        //    {
+        //        GameObject enemy = EnemyPool.Instance.GetObject();
+        //        enemy.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), -200);
 
-                Instantiate(enemy);
+        //        Instantiate(enemy);
 
-                lastSpawnEnemy = 0;
-            }
-        }
+        //        lastSpawnEnemy = 0;
+        //    }
+        //}
 
         /// <summary>
         /// method for spawning in minerals
         /// </summary>
-        private void SpawnMinerals()
-        {
-            lastSpawnMineral += DeltaTime;
+        //private void SpawnMinerals()
+        //{
+        //    lastSpawnMineral += DeltaTime;
 
-            if (lastSpawnMineral > 4)
-            {
-                GameObject mineral = MineralPool.Instance.GetObject();
-                mineral.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), 0);
+        //    if (lastSpawnMineral > 4)
+        //    {
+        //        GameObject mineral = MineralPool.Instance.GetObject();
+        //        mineral.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), 0);
 
-                Instantiate(mineral);
+        //        Instantiate(mineral);
 
-                lastSpawnMineral = 0;
-            }
-        }
+        //        lastSpawnMineral = 0;
+        //    }
+        //}
 
         /// <summary>
         /// Method for finding an object of a type, so we can reference it
