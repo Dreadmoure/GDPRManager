@@ -1,6 +1,7 @@
 ﻿using GDPRManager.ComponentPattern;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,9 +17,14 @@ namespace GDPRManager.CommandPattern
 
         public void Execute(Clickable clickable)
         {
-            if(clickable is CaseStack)
+
+            Debug.WriteLine("kage");
+
+            if (clickable is CaseStack)
             {
 
+
+                
             }
         }
     }
