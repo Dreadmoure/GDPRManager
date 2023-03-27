@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace GDPRManager
 {
@@ -107,12 +108,18 @@ namespace GDPRManager
             gameObjects.Add(stickyNoteDirector.Construct());
             // mouse is added 
             Director mouseDirector = new Director(new MouseBuilder());
-            gameObjects.Add(mouseDirector.Construct()); 
+            gameObjects.Add(mouseDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Awake();
+
+                Collider collider = (Collider)gameObjects[i].GetComponent<Collider>();
+                if (collider != null)
+                {
+                    Colliders.Add(collider);
+                }
             }
 
             base.Initialize();
@@ -142,6 +149,7 @@ namespace GDPRManager
             //used to exit the application
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
 
             //check if the game is over
             if (!GameOver) 
