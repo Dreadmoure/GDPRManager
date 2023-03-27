@@ -103,8 +103,11 @@ namespace GDPRManager
             Director caseStackDirector = new Director(new CaseStackBuilder());
             gameObjects.Add(caseStackDirector.Construct());
             //stickynote is added
-            Director sitckyNoteDirector = new Director(new StickyNoteBuilder());
-            gameObjects.Add(sitckyNoteDirector.Construct());
+            Director stickyNoteDirector = new Director(new StickyNoteBuilder());
+            gameObjects.Add(stickyNoteDirector.Construct());
+            // mouse is added 
+            Director mouseDirector = new Director(new MouseBuilder());
+            gameObjects.Add(mouseDirector.Construct()); 
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
