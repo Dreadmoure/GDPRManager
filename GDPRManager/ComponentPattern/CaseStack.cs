@@ -17,17 +17,12 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\CaseStack");
+            spriteRenderer.SetSprite("Sprites\\CaseStackV2");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 6f, GameWorld.ScreenSize.Y / 1.5f);
 
-            GameObject.Tag = "Stack"; 
-        }
-
-        public void Onclick()
-        {
-            //do something call resolve case
+            GameObject.Tag = "CaseStack"; 
         }
 
         //public void Notify(GameEvent gameEvent)

@@ -26,6 +26,7 @@ namespace GDPRManager.BuilderPattern
             CaseStack caseStack = (CaseStack)gameObject.AddComponent(new CaseStack());
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.AddComponent(new SpriteRenderer());
             Collider collider = (Collider)gameObject.AddComponent(new Collider());
+            Clickable clickable = (Clickable)gameObject.AddComponent(new Clickable());
 
             collider.CollisionEvent.Attach(caseStack); 
         }

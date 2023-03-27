@@ -19,7 +19,7 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\Pixel");
+            spriteRenderer.SetSprite("Sprites\\MousePointer");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
 
@@ -40,13 +40,10 @@ namespace GDPRManager.ComponentPattern
             {
                 GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "Stack")
+                if (other.Tag == "CaseStack")
                 {
-                    //SpriteRenderer s = other.GetComponent<SpriteRenderer>() as SpriteRenderer;
 
-                    //s.SetSprite("Sprites\\StickyNote");
-
-                    Clickable clickable = other.GetComponent<Clickable>() as Clickable;
+                    Clickable clickable = other.GetComponent<Clickable>() as Clickable; //this is null in runtime this is why we cannot check what type it is in ClickCommand
 
                     ClickHandler.Instance.Execute(clickable);
 
