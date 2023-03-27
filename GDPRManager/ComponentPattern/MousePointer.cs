@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,13 +42,15 @@ namespace GDPRManager.ComponentPattern
 
                 if (other.Tag == "Stack")
                 {
-                    SpriteRenderer s = other.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                    //SpriteRenderer s = other.GetComponent<SpriteRenderer>() as SpriteRenderer;
 
-                    s.SetSprite("Sprites\\StickyNote");
+                    //s.SetSprite("Sprites\\StickyNote");
 
-                    Clickable clickable = other.GetComponent<Clickable>() as Clickable; 
+                    Clickable clickable = other.GetComponent<Clickable>() as Clickable;
 
                     ClickHandler.Instance.Execute(clickable);
+
+                    Debug.WriteLine("collision with mouse"); 
                 }
             }
         }

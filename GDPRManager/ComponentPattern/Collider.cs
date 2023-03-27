@@ -6,6 +6,7 @@ using System.Linq;
 using GDPRManager.ObserverPattern;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace GDPRManager.ComponentPattern
 {
@@ -85,34 +86,41 @@ namespace GDPRManager.ComponentPattern
         public void DrawRectangle(Rectangle collisionBox, SpriteBatch spriteBatch)
         {
             Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
-        Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
-        Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
-        Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
+            Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
+            Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
+            Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
 
-        spriteBatch.Draw(texture, topLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
+            spriteBatch.Draw(texture, topLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
             spriteBatch.Draw(texture, bottomLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
             spriteBatch.Draw(texture, rightLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
             spriteBatch.Draw(texture, leftLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
         }
 
-    /// <summary>
-    /// method for checking if objects collide
-    /// </summary>
-    private void CheckCollision()
+        /// <summary>
+        /// method for checking if objects collide
+        /// </summary>
+        private void CheckCollision()
         {
             foreach (Collider other in GameWorld.Instance.Colliders)
             {
-                if (other != this && other.CollisionBox.Intersects(CollisionBox))
+                if (other != this && other.CollisionBox.Contains(CollisionBox))
                 {
+                    Debug.WriteLine("Box"); 
+
                     foreach (RectangleData myRectangleData in rectangles.Value)
                     {
                         foreach (RectangleData otherRectangleData in other.rectangles.Value)
                         {
-                            if (myRectangleData.Rectangle.Intersects(otherRectangleData.Rectangle))
+                            if (myRectangleData.Rectangle.Contains(otherRectangleData.Rectangle))
                             {
                                 CollisionEvent.Notify(other.GameObject);
-                                //return;
+                                // other bool inside = true; 
+                                // other bool outside = false; 
+                                ////return;
                             }
+                            // else 
+                            // other bool outside = true; 
+                            // other bool inside = false; 
                         }
                     }
                 }
@@ -148,9 +156,8 @@ namespace GDPRManager.ComponentPattern
                         if ((x == 0)    // check leftside corner
                             || (x == lines[y].Length) //right side corner
                             || (x > 0 && lines[y][x - 1].A == 0) //looks at the pixel to the left
-
                             || (x < lines[y].Length - 1 && lines[y][x + 1].A == 0)    //looks at the pixel to the right
-                            || (y == 0) // checsk rightside corner
+                            || (y == 0) // checks rightside corner
                             || (y > 0 && lines[y - 1][x].A == 0) //looks at the pixel above               
                             || (y < lines.Count - 1 && lines[y + 1][x].A == 0)) //looks at the pixel below
                         {
