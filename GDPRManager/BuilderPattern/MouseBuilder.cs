@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
-    public class CaseStackBuilder : IBuilder
+    public class MouseBuilder : IBuilder
     {
         private GameObject gameObject;
 
@@ -15,19 +15,11 @@ namespace GDPRManager.BuilderPattern
         {
             gameObject = new GameObject();
 
-            BuildComponents();
-        }
-
-        /// <summary>
-        /// adds components to the gameobject
-        /// </summary>
-        private void BuildComponents()
-        {
-            CaseStack caseStack = (CaseStack)gameObject.AddComponent(new CaseStack());
+            MousePointer mouse = (MousePointer)gameObject.AddComponent(new MousePointer());
             SpriteRenderer spriteRenderer = (SpriteRenderer)gameObject.AddComponent(new SpriteRenderer());
             Collider collider = (Collider)gameObject.AddComponent(new Collider());
 
-            collider.CollisionEvent.Attach(caseStack); 
+            collider.CollisionEvent.Attach(mouse); 
         }
 
         public GameObject GetResult()
