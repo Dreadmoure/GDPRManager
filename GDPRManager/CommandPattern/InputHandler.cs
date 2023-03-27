@@ -30,7 +30,7 @@ namespace GDPRManager.CommandPattern
         }
         #endregion
 
-        private Dictionary<KeyInfo, ICommand> keybinds = new Dictionary<KeyInfo, ICommand>();
+        private Dictionary<KeyInfo, ICommand<Player>> keybinds = new Dictionary<KeyInfo, ICommand<Player>>();
 
         #region methods
         /// <summary>
@@ -40,10 +40,7 @@ namespace GDPRManager.CommandPattern
         {
             Player player = (Player)GameWorld.Instance.FindObjectOfType<Player>();
 
-            keybinds.Add(new KeyInfo(Keys.A), new PauseCommand(new Vector2(-1, 0)));
-            keybinds.Add(new KeyInfo(Keys.D), new PauseCommand(new Vector2(1, 0)));
-            keybinds.Add(new KeyInfo(Keys.W), new PauseCommand(new Vector2(0, -1)));
-            keybinds.Add(new KeyInfo(Keys.S), new PauseCommand(new Vector2(0, 1)));
+            keybinds.Add(new KeyInfo(Keys.Escape), new PauseCommand());
         }
 
         /// <summary>

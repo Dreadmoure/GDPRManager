@@ -1,6 +1,7 @@
 ﻿using GDPRManager.CommandPattern;
 using GDPRManager.ObserverPattern;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,25 +10,27 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class CaseStack : Component, IGameListener
+    public class MousePointer : Component, IGameListener
     {
-        /// <summary>
-        /// sets sprite and position
-        /// </summary>
+        private Vector2 mousePosition;
+        private MouseState mouseState;
+
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\CaseStack");
+            spriteRenderer.SetSprite("Sprites\\Pixel");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 6f, GameWorld.ScreenSize.Y / 1.5f);
 
-            GameObject.Tag = "Stack"; 
+            GameObject.Tag = "Mouse";
         }
 
-        public void Onclick()
+        public override void Update(GameTime gameTime)
         {
-            //do something call resolve case
+            mouseState = Mouse.GetState();
+
+            mousePosition = new Vector2(mouseState.X, mouseState.Y);
+            GameObject.Transform.Position = new Vector2(mousePosition.X, mousePosition.Y);
         }
 
         public void Notify(GameEvent gameEvent)
@@ -36,13 +39,15 @@ namespace GDPRManager.ComponentPattern
             {
                 GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "Mouse")
+                if (other.Tag == "Stack")
                 {
-                    SpriteRenderer s = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                    SpriteRenderer s = other.GetComponent<SpriteRenderer>() as SpriteRenderer;
 
                     s.SetSprite("Sprites\\StickyNote");
 
-                    //ClickHandler.Instance.Execute(this);
+                    Clickable clickable = other.GetComponent<Clickable>() as Clickable; 
+
+                    ClickHandler.Instance.Execute(clickable);
                 }
             }
         }
