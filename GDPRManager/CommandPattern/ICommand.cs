@@ -10,12 +10,12 @@ namespace GDPRManager.CommandPattern
     /// <summary>
     /// interface class ICommand
     /// </summary>
-    public interface ICommand
+    public interface ICommand<T>
     {
         /// <summary>
         /// method for implementation
         /// </summary>
         /// <param name="player"></param>
-        public void Execute(Player player);
+        public void Execute(T t);
     }
 }

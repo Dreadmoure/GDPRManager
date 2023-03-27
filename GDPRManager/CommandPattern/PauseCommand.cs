@@ -11,17 +11,14 @@ namespace GDPRManager.CommandPattern
     /// <summary>
     /// class for the movecommand
     /// </summary>
-    public class PauseCommand : ICommand
+    public class PauseCommand : ICommand<Player>
     {
-        private Vector2 velocity;
-
         /// <summary>
         /// sets the velocity based on the input
         /// </summary>
         /// <param name="velocity">which direction we want</param>
-        public PauseCommand(Vector2 velocity)
+        public PauseCommand()
         {
-            this.velocity = velocity;
         }
 
         /// <summary>
