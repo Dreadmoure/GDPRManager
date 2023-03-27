@@ -11,7 +11,7 @@ namespace GDPRManager.CreationalPattern
     /// <summary>
     /// used to hold types of minerals
     /// </summary>
-    public enum CaseType { One, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten }
+    public enum CaseFileType { CaseFileOne, CaseFileTwo, CaseFileThree, CaseFileFour, CaseFileFive, CaseFileSix, CaseFileSeven, CaseFileEight, CaseFileNine, CaseFileTen }
 
     /// <summary>
     /// class for making minerals of different types
@@ -45,7 +45,7 @@ namespace GDPRManager.CreationalPattern
 
             SpriteRenderer spriteRenderer = gameObject.AddComponent(new SpriteRenderer()) as SpriteRenderer;
             gameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X /2, GameWorld.ScreenSize.Y /2);
-            gameObject.Tag = "Case";
+            gameObject.Tag = "CaseFile";
             spriteRenderer.LayerDepth = 0.8f;
             spriteRenderer.Scale = 1f;
             spriteRenderer.SetSprite("Sprites\\CaseFile");
@@ -56,11 +56,11 @@ namespace GDPRManager.CreationalPattern
 
             switch (type)
             {
-                case CaseType.One:
+                case CaseFileType.CaseFileOne:
                     caseFile = gameObject.AddComponent(new CaseFile()) as CaseFile;
                     //needs a string for the text that can vary
                     break;
-                case CaseType.Two:
+                case CaseFileType.CaseFileTwo:
                     caseFile = gameObject.AddComponent(new CaseFile()) as CaseFile;
                     break;
             }

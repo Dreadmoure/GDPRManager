@@ -68,7 +68,7 @@ namespace GDPRManager.ComponentPattern
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            UpdatePixelCollider();
+            //UpdatePixelCollider();
             CheckCollision();
         }
 
@@ -105,24 +105,24 @@ namespace GDPRManager.ComponentPattern
             {
                 if (other != this && other.CollisionBox.Contains(CollisionBox))
                 {
-                    Debug.WriteLine("Box"); 
+                    CollisionEvent.Notify(other.GameObject);
 
-                    foreach (RectangleData myRectangleData in rectangles.Value)
-                    {
-                        foreach (RectangleData otherRectangleData in other.rectangles.Value)
-                        {
-                            if (myRectangleData.Rectangle.Contains(otherRectangleData.Rectangle))
-                            {
-                                CollisionEvent.Notify(other.GameObject);
-                                // other bool inside = true; 
-                                // other bool outside = false; 
-                                ////return;
-                            }
-                            // else 
-                            // other bool outside = true; 
-                            // other bool inside = false; 
-                        }
-                    }
+                    //foreach (RectangleData myRectangleData in rectangles.Value)
+                    //{
+                    //    foreach (RectangleData otherRectangleData in other.rectangles.Value)
+                    //    {
+                    //        if (myRectangleData.Rectangle.Contains(otherRectangleData.Rectangle))
+                    //        {
+                    //            CollisionEvent.Notify(other.GameObject);
+                    //            // other bool inside = true; 
+                    //            // other bool outside = false; 
+                    //            ////return;
+                    //        }
+                    //        // else 
+                    //        // other bool outside = true; 
+                    //        // other bool inside = false; 
+                    //    }
+                    //}
                 }
             }
         }
