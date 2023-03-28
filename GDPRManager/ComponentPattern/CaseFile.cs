@@ -11,6 +11,8 @@ namespace GDPRManager.ComponentPattern
     {
         public string Solution { get; set; }
 
+        public string StickyNoteText { get; set; }
+
         /// <summary>
         /// sets sprite and position
         /// </summary>
