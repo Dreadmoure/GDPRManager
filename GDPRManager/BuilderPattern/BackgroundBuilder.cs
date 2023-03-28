@@ -26,7 +26,7 @@ namespace GDPRManager.BuilderPattern
         /// </summary>
         private void BuildComponents()
         {
-            Background ground = (Background)gameObject.AddComponent(new Background());
+            Background background = (Background)gameObject.AddComponent(new Background());
             gameObject.AddComponent(new SpriteRenderer());
         }
 
