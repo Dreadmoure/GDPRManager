@@ -15,7 +15,7 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\CaseStack");
+            spriteRenderer.SetSprite("Sprites\\CaseFile");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
