@@ -69,6 +69,8 @@ namespace GDPRManager
         /// Property for accessing the size of the screen
         /// </summary>
         public static Vector2 ScreenSize { get; private set; }
+
+        public int CaseFileID { get; set; } = 1;
         #endregion
 
         #region constructor
@@ -109,6 +111,12 @@ namespace GDPRManager
             // mouse is added 
             Director mouseDirector = new Director(new MouseBuilder());
             gameObjects.Add(mouseDirector.Construct());
+
+            Director approveButtonDirector = new Director(new ApproveButtonBuilder());
+            gameObjects.Add(approveButtonDirector.Construct());
+
+            Director denyButtonDirector = new Director(new DenyButtonBuilder());
+            gameObjects.Add(denyButtonDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
@@ -265,6 +273,14 @@ namespace GDPRManager
             destroyGameObjects.Clear();
             newGameObjects.Clear();
         }
+
+        //public void CreateCaseFile(Enum )
+        //{
+        //    if (unitType.Equals("SoldierPlayerOne"))
+        //    {
+                
+        //    }
+        //}
 
         ///// <summary>
         ///// method for spawning in enemies

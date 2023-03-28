@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class ApproveButton : Button
+    public class ApproveButton : Clickable
     {
         /// <summary>
         /// sets sprite and position
@@ -17,14 +17,10 @@ namespace GDPRManager.ComponentPattern
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
             spriteRenderer.SetSprite("Sprites\\ApproveButton");
-            spriteRenderer.LayerDepth = 0.9f;
+            spriteRenderer.LayerDepth = 0.71f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2.4f, GameWorld.ScreenSize.Y / 1.2f);
-        }
-
-        public override void Onclick()
-        {
-            //do something call resolve case
+            GameObject.Tag = "ApproveButton";
         }
     }
 }

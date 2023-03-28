@@ -26,7 +26,6 @@ namespace GDPRManager.ComponentPattern
 
         #region properties
         public int Score { get; set; }
-        public int CaseFileNumber { get; set; }
         #endregion
 
         #region methods
@@ -36,7 +35,7 @@ namespace GDPRManager.ComponentPattern
         /// </summary>
         public override void Awake()
         {
-            CaseFileNumber = 1;
+            
         }
 
         /// <summary>
@@ -98,21 +97,6 @@ namespace GDPRManager.ComponentPattern
                 {
                     //do something
                 }
-            }
-        }
-
-        public void CreateFileCase(Enum caseFileType)
-        {
-            GameObject gameObject = new GameObject();
-
-            switch (caseFileType)
-            {
-                case CaseFileType.CaseFileOne:
-                    {
-                        gameObject = CaseFileFactory.Instance.Create(CaseFileType.CaseFileOne);
-                        GameWorld.Instance.Instantiate(gameObject);
-                    }
-                    break;
             }
         }
         #endregion

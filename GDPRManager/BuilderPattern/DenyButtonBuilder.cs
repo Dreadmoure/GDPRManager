@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
-    /// <summary>
-    /// Class for building the Background
-    /// </summary>
-    public class BackgroundBuilder : IBuilder
+    public class DenyButtonBuilder : IBuilder
     {
         private GameObject gameObject;
 
@@ -21,13 +18,12 @@ namespace GDPRManager.BuilderPattern
             BuildComponents();
         }
 
-        /// <summary>
-        /// adds components to the gameobject
-        /// </summary>
         private void BuildComponents()
         {
-            Background background = (Background)gameObject.AddComponent(new Background());
+            DenyButton denyButton = (DenyButton)gameObject.AddComponent(new DenyButton());
             gameObject.AddComponent(new SpriteRenderer());
+            gameObject.AddComponent(new Collider());
+            gameObject.AddComponent(new Clickable());
         }
 
         public GameObject GetResult()

@@ -28,7 +28,7 @@ namespace GDPRManager.BuilderPattern
             Collider collider = (Collider)gameObject.AddComponent(new Collider());
             Clickable clickable = (Clickable)gameObject.AddComponent(new Clickable());
 
-            collider.CollisionEvent.Attach(caseStack); 
+            //collider.CollisionEvent.Attach(caseStack); 
         }
 
         public GameObject GetResult()
