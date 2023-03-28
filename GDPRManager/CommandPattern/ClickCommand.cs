@@ -1,4 +1,5 @@
 ﻿using GDPRManager.ComponentPattern;
+using GDPRManager.CreationalPattern;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +11,9 @@ namespace GDPRManager.CommandPattern
 {
     public class ClickCommand : ICommand<Clickable>
     {
+        private bool isCaseActive = false;
+        private GameObject gameObject;
+
         public ClickCommand()
         {
 
@@ -17,21 +21,28 @@ namespace GDPRManager.CommandPattern
 
         public void Execute(Clickable clickable)
         {
+            if (clickable.GameObject.Tag == "CaseStack" && !isCaseActive && GameWorld.Instance.CaseFileID <= 10)
+            {
+                isCaseActive = true;
 
-            //Debug.WriteLine("kage");
-
-            if (clickable.GameObject.Tag == "CaseStack")
-            {
-                //clickable.CreateCaseFile() but shouldnt that be one 
-                Debug.WriteLine("Clicked on CaseStack");
+                gameObject = new GameObject();
+                gameObject = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
+                GameWorld.Instance.Instantiate(gameObject);
+                GameWorld.Instance.CaseFileID++;
+                
+                //Debug.WriteLine("Clicked on CaseStack");
             }
-            else if(clickable.GameObject.Tag == "ApproveButton")
+            else if(clickable.GameObject.Tag == "ApproveButton" && isCaseActive)
             {
-                Debug.WriteLine("Clicked on ApproveButton");
+                isCaseActive = false;
+                GameWorld.Instance.Destroy(gameObject);
+                //Debug.WriteLine("Clicked on ApproveButton");
             }
-            else if(clickable.GameObject.Tag == "DenyButton")
+            else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
             {
-                Debug.WriteLine("Clicked on DenyButton");
+                isCaseActive = false;
+                GameWorld.Instance.Destroy(gameObject);
+                //Debug.WriteLine("Clicked on DenyButton");
             }
 
 
