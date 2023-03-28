@@ -35,18 +35,11 @@ namespace GDPRManager
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private float lastSpawnEnemy = 0;
-        private float lastSpawnMineral = 0;
-        private Random random = new Random();
-
         private List<GameObject> gameObjects = new List<GameObject>();
         private List<GameObject> destroyGameObjects = new List<GameObject>();
         private List<GameObject> newGameObjects = new List<GameObject>();
 
-        private SpriteFont font;
-        private string ammoCounterText;
-        private string scoreText;
-        private string scoreMultiplierText;
+        private UI userInterface = UI.Instance;
         #endregion
 
         #region properties
@@ -58,7 +51,12 @@ namespace GDPRManager
         /// <summary>
         /// Property used to getting or setting wether or not the game is over
         /// </summary>
-        public bool GameOver { get; set; } = false; 
+        public bool GameOver { get; set; } = false;
+
+        /// <summary>
+        /// Property for getting or setting the score
+        /// </summary>
+        public int Score { get; set; }
 
         /// <summary>
         /// Used to add colliders on instantiated objects and remove from the objects slated for removal
@@ -140,12 +138,15 @@ namespace GDPRManager
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            userInterface.LoadContent(Content);
 
             //calls start on all gameobjects
-            for(int i = 0; i < gameObjects.Count; i++)
+            for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Start();
             }
+
+            
         }
 
         /// <summary>
@@ -168,14 +169,13 @@ namespace GDPRManager
                 //updates the gametime
                 DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-                //updates our texts
-                scoreText = $"Score: {(int)player.Score}";
-
                 //calls update on all gameobjects
                 for (int i = 0; i < gameObjects.Count; i++)
                 {
                     gameObjects[i].Update(gameTime);
                 }
+
+                userInterface.Update(gameTime);
 
                 //spawns enemies and minerals
                 //SpawnEnemies();
@@ -207,6 +207,8 @@ namespace GDPRManager
             }
 
             //we stop drawing
+            userInterface.Draw(_spriteBatch);
+
             _spriteBatch.End();
             
 ;
