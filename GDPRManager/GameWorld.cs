@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace GDPRManager
 {
@@ -58,6 +59,8 @@ namespace GDPRManager
         /// </summary>
         public int Score { get; set; }
 
+        public GameObject StickyNoteObject { get; private set; }
+
         /// <summary>
         /// Used to add colliders on instantiated objects and remove from the objects slated for removal
         /// </summary>
@@ -106,6 +109,7 @@ namespace GDPRManager
             //stickynote is added
             Director stickyNoteDirector = new Director(new StickyNoteBuilder());
             gameObjects.Add(stickyNoteDirector.Construct());
+            StickyNoteObject = gameObjects.Last<GameObject>();
             // mouse is added 
             Director mouseDirector = new Director(new MouseBuilder());
             gameObjects.Add(mouseDirector.Construct());
