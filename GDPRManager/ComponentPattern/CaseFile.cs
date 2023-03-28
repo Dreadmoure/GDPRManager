@@ -9,6 +9,8 @@ namespace GDPRManager.ComponentPattern
 {
     public class CaseFile : Component
     {
+        public string Solution { get; set; }
+
         /// <summary>
         /// sets sprite and position
         /// </summary>

@@ -4,29 +4,27 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class Clickable : Component, IGameListener
+    public class Clickable : Component
     {
-        public void Notify(GameEvent gameEvent)
+        public void ResolveCase(string answer, GameObject gameObject)
         {
-            //if (gameEvent is CollisionEvent)
-            //{
-            //    GameObject other = (gameEvent as CollisionEvent).Other;
-
-            //    if (other.Tag == "Mouse")
-            //    {
-            //        //SpriteRenderer s = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-
-            //        //s.SetSprite("Sprites\\StickyNote");
-
-            //        ClickHandler.Instance.Execute(this);
-            //    }
-            //}
+            CaseFile caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+            if(answer == caseFile.Solution)
+            {
+                GameWorld.Instance.Score += 100;
+            }
+            else if(GameWorld.Instance.Score > 0)
+            {
+                GameWorld.Instance.Score -= 100;
+            }
+            Debug.WriteLine(GameWorld.Instance.Score);
         }
     }
 }

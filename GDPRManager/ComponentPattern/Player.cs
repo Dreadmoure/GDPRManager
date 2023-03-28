@@ -25,7 +25,6 @@ namespace GDPRManager.ComponentPattern
         #endregion
 
         #region properties
-        public int Score { get; set; }
         #endregion
 
         #region methods

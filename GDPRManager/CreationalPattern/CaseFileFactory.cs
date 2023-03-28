@@ -66,14 +66,18 @@ namespace GDPRManager.CreationalPattern
         {
             GameObject gameObject = new GameObject();
             gameObject = (GameObject)caseFilePrototype.Clone();
+            CaseFile caseFile;
 
             switch (caseID)
             {
                 case 1:
-                    
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Approve";
                     //needs a string for the text that can vary
                     break;
                 case 2:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Deny";
                     break;
             }
             return gameObject;

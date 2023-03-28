@@ -1,5 +1,6 @@
 ﻿using GDPRManager.ComponentPattern;
 using GDPRManager.CreationalPattern;
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -28,19 +29,23 @@ namespace GDPRManager.CommandPattern
                 gameObject = new GameObject();
                 gameObject = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
                 GameWorld.Instance.Instantiate(gameObject);
-                GameWorld.Instance.CaseFileID++;
                 
                 //Debug.WriteLine("Clicked on CaseStack");
             }
             else if(clickable.GameObject.Tag == "ApproveButton" && isCaseActive)
             {
                 isCaseActive = false;
+                clickable.ResolveCase("Approve", gameObject);
+                GameWorld.Instance.CaseFileID++;
                 GameWorld.Instance.Destroy(gameObject);
+
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
             else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
             {
                 isCaseActive = false;
+                clickable.ResolveCase("Deny", gameObject);
+                GameWorld.Instance.CaseFileID++;
                 GameWorld.Instance.Destroy(gameObject);
                 //Debug.WriteLine("Clicked on DenyButton");
             }
