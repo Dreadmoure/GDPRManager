@@ -25,6 +25,8 @@ namespace GDPRManager.BuilderPattern
         {
             StickyNote stickyNote = (StickyNote)gameObject.AddComponent(new StickyNote());
             gameObject.AddComponent(new SpriteRenderer());
+            gameObject.AddComponent(new TextRenderer());
+
         }
 
         public GameObject GetResult()

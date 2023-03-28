@@ -34,6 +34,11 @@ namespace GDPRManager.ComponentPattern
         public float LayerDepth { get; set; }
 
         /// <summary>
+        /// Property for getting or setting the position of the text
+        /// </summary>
+        public Vector2 Position { get; private set; }
+
+        /// <summary>
         /// property for getting or setting the scale of the image
         /// </summary>
         public float Scale { get; set; }
@@ -45,10 +50,6 @@ namespace GDPRManager.ComponentPattern
         /// </summary>
         public override void Start()
         {
-            float textX = NormalTextFont.MeasureString(Text).X / 2;
-            float textY = NormalTextFont.MeasureString(Text).Y / 2;
-
-            Origin = new Vector2(textX, textY);
             LayerDepth = 0.8f;
             Scale = 1f;
         }
@@ -57,9 +58,11 @@ namespace GDPRManager.ComponentPattern
         /// method for setting the sprite based on the input string
         /// </summary>
         /// <param name="spriteName">path and name of the file</param>
-        public void SetText(string textName)
+        public void SetText(string text, Vector2 position)
         {
-            NormalTextFont = GameWorld.Instance.Content.Load<SpriteFont>(textName);
+            NormalTextFont = GameWorld.Instance.Content.Load<SpriteFont>("Fonts\\NormalTextFont");
+            Text = text;
+            Position = position;
         }
 
         /// <summary>
@@ -68,7 +71,12 @@ namespace GDPRManager.ComponentPattern
         /// <param name="spriteBatch">passed in from gameworld so we can draw through it</param>
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(NormalTextFont, Text, new Vector2(GameWorld.ScreenSize.X / 2, GameWorld.ScreenSize.Y / 2), Color.Black, 0f, Origin, Scale, SpriteEffects.None, LayerDepth);
+            float textX = NormalTextFont.MeasureString(Text).X / 2;
+            float textY = NormalTextFont.MeasureString(Text).Y / 2;
+
+            Origin = new Vector2(textX, textY);
+
+            spriteBatch.DrawString(NormalTextFont, Text, Position, Color.Black, 0f, Origin, Scale, SpriteEffects.None, LayerDepth);
         }
         #endregion
     }

@@ -14,6 +14,7 @@ namespace GDPRManager.CommandPattern
     {
         private bool isCaseActive = false;
         private GameObject gameObject;
+        private StickyNote stickyNote;
 
         public ClickCommand()
         {
@@ -29,6 +30,8 @@ namespace GDPRManager.CommandPattern
                 gameObject = new GameObject();
                 gameObject = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
                 GameWorld.Instance.Instantiate(gameObject);
+
+                SetStickyNoteText();
                 
                 //Debug.WriteLine("Clicked on CaseStack");
             }
@@ -39,6 +42,8 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.CaseFileID++;
                 GameWorld.Instance.Destroy(gameObject);
 
+                RemoveStickyNoteText();
+
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
             else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
@@ -47,10 +52,28 @@ namespace GDPRManager.CommandPattern
                 clickable.ResolveCase("Deny", gameObject);
                 GameWorld.Instance.CaseFileID++;
                 GameWorld.Instance.Destroy(gameObject);
+
+                RemoveStickyNoteText();
                 //Debug.WriteLine("Clicked on DenyButton");
             }
 
 
+        }
+
+        private void SetStickyNoteText()
+        {
+            CaseFile casefile = gameObject.GetComponent<CaseFile>() as CaseFile;
+            stickyNote = GameWorld.Instance.StickyNoteObject.GetComponent<StickyNote>() as StickyNote;
+            stickyNote.Text = casefile.StickyNoteText;
+            stickyNote.TextRenderer.SetText(stickyNote.Text, GameWorld.Instance.StickyNoteObject.Transform.Position);
+        }
+
+        private void RemoveStickyNoteText()
+        {
+            CaseFile casefile = gameObject.GetComponent<CaseFile>() as CaseFile;
+            stickyNote = GameWorld.Instance.StickyNoteObject.GetComponent<StickyNote>() as StickyNote;
+            stickyNote.Text = "";
+            stickyNote.TextRenderer.SetText(stickyNote.Text, GameWorld.Instance.StickyNoteObject.Transform.Position);
         }
     }
 }
