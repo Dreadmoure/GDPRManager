@@ -73,11 +73,53 @@ namespace GDPRManager.CreationalPattern
                 case 1:
                     caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
                     caseFile.Solution = "Approve";
+                    caseFile.StickyNoteText = "Test StickyNote Hint1";
                     //needs a string for the text that can vary
                     break;
                 case 2:
                     caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
                     caseFile.Solution = "Deny";
+                    caseFile.StickyNoteText = "Test StickyNote Hint2";
+                    break;
+                case 3:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Approve";
+                    caseFile.StickyNoteText = "Test StickyNote Hint3";
+                    break;
+                case 4:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Deny";
+                    caseFile.StickyNoteText = "Test StickyNote Hint4";
+                    break;
+                case 5:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Deny";
+                    caseFile.StickyNoteText = "Test StickyNote Hint5";
+                    break;
+                case 6:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Approve";
+                    caseFile.StickyNoteText = "Test StickyNote Hint6";
+                    break;
+                case 7:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Approve";
+                    caseFile.StickyNoteText = "Test StickyNote Hint7";
+                    break;
+                case 8:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Deny";
+                    caseFile.StickyNoteText = "Test StickyNote Hint8";
+                    break;
+                case 9:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Deny";
+                    caseFile.StickyNoteText = "Test StickyNote Hint9";
+                    break;
+                case 10:
+                    caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;
+                    caseFile.Solution = "Approve";
+                    caseFile.StickyNoteText = "Test StickyNote Hint10";
                     break;
             }
             return gameObject;
