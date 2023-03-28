@@ -20,6 +20,13 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/NormalTextFont.spritefont
 
+#begin Fonts/ScoreTextFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/ScoreTextFont.spritefont
+
 #begin Sprites/ApproveButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
