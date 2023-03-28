@@ -40,14 +40,14 @@ namespace GDPRManager.ComponentPattern
             {
                 GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "CaseStack")
+                if (other.Tag == "CaseStack" || other.Tag == "ApproveButton" || other.Tag == "DenyButton")
                 {
 
-                    Clickable clickable = other.GetComponent<Clickable>() as Clickable; //this is null in runtime this is why we cannot check what type it is in ClickCommand
+                    Clickable clickable = other.GetComponent<Clickable>() as Clickable;
 
                     ClickHandler.Instance.Execute(clickable);
 
-                    Debug.WriteLine("collision with mouse"); 
+                    //Debug.WriteLine("collision with mouse"); 
                 }
             }
         }
