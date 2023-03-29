@@ -24,7 +24,8 @@ namespace GDPRManager.ComponentPattern
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.2f, GameWorld.ScreenSize.Y / 3f);
             Text = "";
             TextRenderer = GameObject.GetComponent<TextRenderer>() as TextRenderer;
-            
+
+            TextRenderer.FontName = "StickyNoteFont";
             TextRenderer.SetText(Text, GameObject.Transform.Position);
             
             
