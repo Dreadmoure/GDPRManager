@@ -27,6 +27,13 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/ScoreTextFont.spritefont
 
+#begin Fonts/StickyNoteFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Fonts/StickyNoteFont.spritefont
+
 #begin Sprites/ApproveButton.png
 /importer:TextureImporter
 /processor:TextureProcessor

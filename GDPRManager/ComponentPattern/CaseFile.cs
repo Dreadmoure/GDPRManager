@@ -11,6 +11,8 @@ namespace GDPRManager.ComponentPattern
     {
         public string Solution { get; set; }
 
+        public string Text { get; set; }
+
         public string StickyNoteText { get; set; }
 
         /// <summary>
@@ -22,7 +24,8 @@ namespace GDPRManager.ComponentPattern
             spriteRenderer.SetSprite("Sprites\\CaseFile");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
+            Text = "";
+            //GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
         }
         
 

@@ -21,7 +21,9 @@ namespace GDPRManager.ComponentPattern
         /// <summary>
         /// Property for getting or setting the font for normal text
         /// </summary>
-        public SpriteFont NormalTextFont { get; private set; }
+        public SpriteFont TextFont { get; private set; }
+
+        public string FontName { get; set; }
 
         /// <summary>
         /// Property for getting or setting the origin of the sprite
@@ -60,7 +62,7 @@ namespace GDPRManager.ComponentPattern
         /// <param name="spriteName">path and name of the file</param>
         public void SetText(string text, Vector2 position)
         {
-            NormalTextFont = GameWorld.Instance.Content.Load<SpriteFont>("Fonts\\NormalTextFont");
+            TextFont = GameWorld.Instance.Content.Load<SpriteFont>($"Fonts\\{FontName}");
             Text = text;
             Position = position;
         }
@@ -71,12 +73,12 @@ namespace GDPRManager.ComponentPattern
         /// <param name="spriteBatch">passed in from gameworld so we can draw through it</param>
         public override void Draw(SpriteBatch spriteBatch)
         {
-            float textX = NormalTextFont.MeasureString(Text).X / 2;
-            float textY = NormalTextFont.MeasureString(Text).Y / 2;
+            float textX = TextFont.MeasureString(Text).X / 2;
+            float textY = TextFont.MeasureString(Text).Y / 2;
 
             Origin = new Vector2(textX, textY);
 
-            spriteBatch.DrawString(NormalTextFont, Text, Position, Color.Black, 0f, Origin, Scale, SpriteEffects.None, LayerDepth);
+            spriteBatch.DrawString(TextFont, Text, Position, Color.Black, 0f, Origin, Scale, SpriteEffects.None, LayerDepth);
         }
         #endregion
     }
