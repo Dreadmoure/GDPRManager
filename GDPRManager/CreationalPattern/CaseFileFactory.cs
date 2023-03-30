@@ -8,15 +8,10 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CreationalPattern
 {
-    ///// <summary>
-    ///// used to hold types of minerals
-    ///// </summary>
-    //public enum CaseFileType { CaseFileOne, CaseFileTwo, CaseFileThree, CaseFileFour, CaseFileFive, CaseFileSix, CaseFileSeven, CaseFileEight, CaseFileNine, CaseFileTen }
-
     /// <summary>
     /// class for making minerals of different types
     /// </summary>
-    public class CaseFileFactory
+    public class CaseFileFactory : Factory
     {
         #region singleton
         private static CaseFileFactory instance;
@@ -62,7 +57,7 @@ namespace GDPRManager.CreationalPattern
         /// </summary>
         /// <param name="type">of a type based on an enum</param>
         /// <returns>the created gameobject</returns>
-        public GameObject Create(int caseID)
+        public override GameObject Create(int caseID)
         {
             GameObject gameObject = new GameObject();
             gameObject = (GameObject)caseFilePrototype.Clone();

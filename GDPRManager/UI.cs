@@ -31,11 +31,6 @@ namespace GDPRManager
         #endregion
 
         #region fields
-        //string som indeholder player score så den kan printes us til skærmen
-        //array med 3 pladser til stjerner
-        #endregion
-
-        #region properties
         private string scoreText;
         private SpriteFont scoreTextFont;
         #endregion

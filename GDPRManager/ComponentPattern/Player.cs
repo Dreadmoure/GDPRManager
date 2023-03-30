@@ -15,7 +15,7 @@ namespace GDPRManager.ComponentPattern
     /// <summary>
     /// class for the player
     /// </summary>
-    public class Player : Component, IGameListener
+    public class Player : Component
     {
         #region fields
         //private MouseState currentMouse;
@@ -78,26 +78,7 @@ namespace GDPRManager.ComponentPattern
 
         }
 
-        /// <summary>
-        /// hanldes gameevents
-        /// </summary>
-        /// <param name="gameEvent"></param>
-        public void Notify(GameEvent gameEvent)
-        {
-            if (gameEvent is CollisionEvent)
-            {
-                GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "ApproveButton")
-                {
-                    //do something
-                }
-                if (other.Tag == "DenyButton")
-                {
-                    //do something
-                }
-            }
-        }
         #endregion
     }
 }
