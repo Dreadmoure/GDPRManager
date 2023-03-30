@@ -39,11 +39,6 @@ namespace GDPRManager.ComponentPattern
         /// Property for getting or setting the position of the text
         /// </summary>
         public Vector2 Position { get; private set; }
-
-        /// <summary>
-        /// property for getting or setting the scale of the image
-        /// </summary>
-        public float Scale { get; set; }
         #endregion
 
         #region methods
@@ -53,7 +48,6 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             LayerDepth = 0.8f;
-            Scale = 1f;
         }
 
         /// <summary>
@@ -78,7 +72,7 @@ namespace GDPRManager.ComponentPattern
 
             Origin = new Vector2(textX, textY);
 
-            spriteBatch.DrawString(TextFont, Text, Position, Color.Black, 0f, Origin, Scale, SpriteEffects.None, LayerDepth);
+            spriteBatch.DrawString(TextFont, Text, Position, Color.Black, 0f, Origin, 1f, SpriteEffects.None, LayerDepth);
         }
         #endregion
     }
