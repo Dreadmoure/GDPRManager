@@ -16,7 +16,7 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\ApproveButton");
+            spriteRenderer.SetSprite("Sprites\\ApproveButtonV2");
             spriteRenderer.LayerDepth = 0.71f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2.4f, GameWorld.ScreenSize.Y / 1.2f);
