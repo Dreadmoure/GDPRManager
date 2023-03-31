@@ -46,6 +46,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/ApproveButton.png
 
+#begin Sprites/ApproveButtonV2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/ApproveButtonV2.png
+
 #begin Sprites/BackgroundV2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -106,6 +118,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/DenyButton.png
 
+#begin Sprites/DenyButtonV2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/DenyButtonV2.png
+
 #begin Sprites/MousePointer.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -117,6 +141,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/MousePointer.png
+
+#begin Sprites/NextButton.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/NextButton.png
 
 #begin Sprites/Pixel.png
 /importer:TextureImporter

@@ -50,11 +50,6 @@ namespace GDPRManager
         public static float DeltaTime { get; private set; }
 
         /// <summary>
-        /// Property used to getting or setting wether or not the game is over
-        /// </summary>
-        public bool GameOver { get; set; } = false;
-
-        /// <summary>
         /// Property for getting or setting the score
         /// </summary>
         public int Score { get; set; }
@@ -163,33 +158,29 @@ namespace GDPRManager
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+            //gets a reference to player
+            Player player = (Player)GameWorld.Instance.FindObjectOfType<Player>();
 
-            //check if the game is over
-            if (!GameOver) 
+            //updates the gametime
+            DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            //calls update on all gameobjects
+            for (int i = 0; i < gameObjects.Count; i++)
             {
-                //gets a reference to player
-                Player player = (Player)GameWorld.Instance.FindObjectOfType<Player>();
-
-                //updates the gametime
-                DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                //calls update on all gameobjects
-                for (int i = 0; i < gameObjects.Count; i++)
-                {
-                    gameObjects[i].Update(gameTime);
-                }
-
-                userInterface.Update(gameTime);
-
-                //spawns enemies and minerals
-                //SpawnEnemies();
-                //SpawnMinerals();
-
-                base.Update(gameTime);
-
-                //calls cleanup
-                Cleanup();
+                gameObjects[i].Update(gameTime);
             }
+
+            userInterface.Update(gameTime);
+
+            //spawns enemies and minerals
+            //SpawnEnemies();
+            //SpawnMinerals();
+
+            base.Update(gameTime);
+
+            //calls cleanup
+            Cleanup();
+
         }
 
         /// <summary>
@@ -279,50 +270,6 @@ namespace GDPRManager
             destroyGameObjects.Clear();
             newGameObjects.Clear();
         }
-
-        //public void CreateCaseFile(Enum )
-        //{
-        //    if (unitType.Equals("SoldierPlayerOne"))
-        //    {
-                
-        //    }
-        //}
-
-        ///// <summary>
-        ///// method for spawning in enemies
-        ///// </summary>
-        //private void SpawnEnemies()
-        //{
-        //    lastSpawnEnemy += DeltaTime;
-
-        //    if(lastSpawnEnemy > 2)
-        //    {
-        //        GameObject enemy = EnemyPool.Instance.GetObject();
-        //        enemy.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), -200);
-
-        //        Instantiate(enemy);
-
-        //        lastSpawnEnemy = 0;
-        //    }
-        //}
-
-        /// <summary>
-        /// method for spawning in minerals
-        /// </summary>
-        //private void SpawnMinerals()
-        //{
-        //    lastSpawnMineral += DeltaTime;
-
-        //    if (lastSpawnMineral > 4)
-        //    {
-        //        GameObject mineral = MineralPool.Instance.GetObject();
-        //        mineral.Transform.Position = new Vector2(random.Next(0, GraphicsDevice.Viewport.Width), 0);
-
-        //        Instantiate(mineral);
-
-        //        lastSpawnMineral = 0;
-        //    }
-        //}
 
         /// <summary>
         /// Method for finding an object of a type, so we can reference it
