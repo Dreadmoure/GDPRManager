@@ -25,6 +25,8 @@ namespace GDPRManager.ComponentPattern
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
             Text = "";
+            TextRenderer textRenderer = GameObject.GetComponent<TextRenderer>() as TextRenderer;
+            textRenderer.LayerDepth = 0.71f;
             //GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
         }
         

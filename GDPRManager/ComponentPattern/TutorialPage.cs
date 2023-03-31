@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,19 +6,20 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class NextButton : Clickable
+    public class TutorialPage : Component
     {
+        public string Text { get; set; }
+
         /// <summary>
         /// sets sprite and position
         /// </summary>
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\NextButton");
-            spriteRenderer.LayerDepth = 0.81f;
+            spriteRenderer.SetSprite("Sprites\\CaseFile");
+            spriteRenderer.LayerDepth = 0.8f;
             spriteRenderer.Scale = 1f;
-            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.65f, GameWorld.ScreenSize.Y / 7.6f);
-            GameObject.Tag = "NextButton";
+            Text = "";
         }
     }
 }

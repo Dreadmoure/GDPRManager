@@ -40,7 +40,7 @@ namespace GDPRManager.ComponentPattern
             {
                 GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "CaseStack" || other.Tag == "ApproveButton" || other.Tag == "DenyButton")
+                if (other.Tag == "CaseStack" || other.Tag == "ApproveButton" || other.Tag == "DenyButton" || other.Tag == "NextButton")
                 {
 
                     Clickable clickable = other.GetComponent<Clickable>() as Clickable;

@@ -13,8 +13,13 @@ namespace GDPRManager.CommandPattern
     public class ClickCommand : ICommand<Clickable>
     {
         private bool isCaseActive = false;
-        private GameObject gameObject;
-        private StickyNote stickyNote;
+        private GameObject caseFile;
+        private GameObject tutorialPage;
+        private GameObject stickyNote;
+
+        private GameObject approveButton; 
+        private GameObject denyButton; 
+        private GameObject nextButton; 
 
         public ClickCommand()
         {
@@ -27,33 +32,67 @@ namespace GDPRManager.CommandPattern
             {
                 isCaseActive = true;
 
-                gameObject = new GameObject();
-                gameObject = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
-                GameWorld.Instance.Instantiate(gameObject);
+                caseFile = new GameObject();
+                caseFile = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
+                GameWorld.Instance.Instantiate(caseFile);
+                tutorialPage = new GameObject();
+                tutorialPage = TutorialPageFactory.Instance.Create(GameWorld.Instance.CaseFileID);
+                GameWorld.Instance.Instantiate(tutorialPage);
+                stickyNote = new GameObject();
+                stickyNote = StickyNoteFactory.Instance.Create(GameWorld.Instance.CaseFileID);
+                GameWorld.Instance.Instantiate(stickyNote);
+
+
+                // make button 
+                nextButton = new GameObject();
+                nextButton = ButtonFactory.Instance.Create(3);
+                GameWorld.Instance.Instantiate(nextButton);
+
+                //Debug.WriteLine("Clicked on CaseStack");
+            }
+            else if(clickable.GameObject.Tag == "NextButton" && isCaseActive)
+            {
+                //destroy tutorial and nextbutton
+                GameWorld.Instance.Destroy(tutorialPage);
+                GameWorld.Instance.Destroy(nextButton);
+
+                //make buttons
+                approveButton = new GameObject();
+                approveButton = ButtonFactory.Instance.Create(1);
+                GameWorld.Instance.Instantiate(approveButton);
+                denyButton = new GameObject();
+                denyButton = ButtonFactory.Instance.Create(2);
+                GameWorld.Instance.Instantiate(denyButton);
 
                 SetStickyNoteText();
-                
-                //Debug.WriteLine("Clicked on CaseStack");
             }
             else if(clickable.GameObject.Tag == "ApproveButton" && isCaseActive)
             {
                 isCaseActive = false;
-                clickable.ResolveCase("Approve", gameObject);
+                clickable.ResolveCase("Approve", caseFile);
                 GameWorld.Instance.CaseFileID++;
-                GameWorld.Instance.Destroy(gameObject);
+                GameWorld.Instance.Destroy(caseFile);
 
                 RemoveStickyNoteText();
 
+                GameWorld.Instance.Destroy(approveButton); 
+                GameWorld.Instance.Destroy(denyButton); 
+                GameWorld.Instance.Destroy(stickyNote); 
+                
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
             else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
             {
                 isCaseActive = false;
-                clickable.ResolveCase("Deny", gameObject);
+                clickable.ResolveCase("Deny", caseFile);
                 GameWorld.Instance.CaseFileID++;
-                GameWorld.Instance.Destroy(gameObject);
+                GameWorld.Instance.Destroy(caseFile);
 
                 RemoveStickyNoteText();
+
+                GameWorld.Instance.Destroy(approveButton);
+                GameWorld.Instance.Destroy(denyButton);
+                GameWorld.Instance.Destroy(stickyNote);
                 //Debug.WriteLine("Clicked on DenyButton");
             }
 
@@ -62,18 +101,18 @@ namespace GDPRManager.CommandPattern
 
         private void SetStickyNoteText()
         {
-            CaseFile casefile = gameObject.GetComponent<CaseFile>() as CaseFile;
-            stickyNote = GameWorld.Instance.StickyNoteObject.GetComponent<StickyNote>() as StickyNote;
-            stickyNote.Text = casefile.StickyNoteText;
-            stickyNote.TextRenderer.SetText(stickyNote.Text, GameWorld.Instance.StickyNoteObject.Transform.Position);
+            CaseFile casefile = caseFile.GetComponent<CaseFile>() as CaseFile;
+            StickyNote note = stickyNote.GetComponent<StickyNote>() as StickyNote;
+            note.Text = casefile.StickyNoteText;
+            note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
         }
 
         private void RemoveStickyNoteText()
         {
-            CaseFile casefile = gameObject.GetComponent<CaseFile>() as CaseFile;
-            stickyNote = GameWorld.Instance.StickyNoteObject.GetComponent<StickyNote>() as StickyNote;
-            stickyNote.Text = "";
-            stickyNote.TextRenderer.SetText(stickyNote.Text, GameWorld.Instance.StickyNoteObject.Transform.Position);
+            CaseFile casefile = caseFile.GetComponent<CaseFile>() as CaseFile;
+            StickyNote note = stickyNote.GetComponent<StickyNote>() as StickyNote;
+            note.Text = "";
+            note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
         }
     }
 }

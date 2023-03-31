@@ -54,8 +54,6 @@ namespace GDPRManager
         /// </summary>
         public int Score { get; set; }
 
-        public GameObject StickyNoteObject { get; private set; }
-
         /// <summary>
         /// Used to add colliders on instantiated objects and remove from the objects slated for removal
         /// </summary>
@@ -102,18 +100,18 @@ namespace GDPRManager
             Director caseStackDirector = new Director(new CaseStackBuilder());
             gameObjects.Add(caseStackDirector.Construct());
             //stickynote is added
-            Director stickyNoteDirector = new Director(new StickyNoteBuilder());
-            gameObjects.Add(stickyNoteDirector.Construct());
-            StickyNoteObject = gameObjects.Last<GameObject>();
+            //Director stickyNoteDirector = new Director(new StickyNoteBuilder());
+            //gameObjects.Add(stickyNoteDirector.Construct());
+            //StickyNoteObject = gameObjects.Last<GameObject>();
             // mouse is added 
             Director mouseDirector = new Director(new MouseBuilder());
             gameObjects.Add(mouseDirector.Construct());
 
-            Director approveButtonDirector = new Director(new ApproveButtonBuilder());
-            gameObjects.Add(approveButtonDirector.Construct());
+            //Director approveButtonDirector = new Director(new ApproveButtonBuilder());
+            //gameObjects.Add(approveButtonDirector.Construct());
 
-            Director denyButtonDirector = new Director(new DenyButtonBuilder());
-            gameObjects.Add(denyButtonDirector.Construct());
+            //Director denyButtonDirector = new Director(new DenyButtonBuilder());
+            //gameObjects.Add(denyButtonDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
