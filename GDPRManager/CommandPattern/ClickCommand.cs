@@ -16,6 +16,10 @@ namespace GDPRManager.CommandPattern
         private GameObject gameObject;
         private StickyNote stickyNote;
 
+        private GameObject approveButton; 
+        private GameObject denyButton; 
+        private GameObject nextButton; 
+
         public ClickCommand()
         {
 
@@ -32,7 +36,15 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Instantiate(gameObject);
 
                 SetStickyNoteText();
-                
+
+                // make buttons 
+                approveButton = new GameObject();
+                approveButton = ButtonFactory.Instance.Create(1);
+                GameWorld.Instance.Instantiate(approveButton);
+                denyButton = new GameObject();
+                denyButton = ButtonFactory.Instance.Create(2);
+                GameWorld.Instance.Instantiate(denyButton);
+
                 //Debug.WriteLine("Clicked on CaseStack");
             }
             else if(clickable.GameObject.Tag == "ApproveButton" && isCaseActive)
@@ -44,6 +56,9 @@ namespace GDPRManager.CommandPattern
 
                 RemoveStickyNoteText();
 
+                GameWorld.Instance.Destroy(approveButton); 
+                GameWorld.Instance.Destroy(denyButton); 
+
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
             else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
@@ -54,6 +69,9 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Destroy(gameObject);
 
                 RemoveStickyNoteText();
+
+                GameWorld.Instance.Destroy(approveButton);
+                GameWorld.Instance.Destroy(denyButton);
                 //Debug.WriteLine("Clicked on DenyButton");
             }
 

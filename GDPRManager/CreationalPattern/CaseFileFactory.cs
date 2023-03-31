@@ -57,7 +57,7 @@ namespace GDPRManager.CreationalPattern
         /// </summary>
         /// <param name="type">of a type based on an enum</param>
         /// <returns>the created gameobject</returns>
-        public override GameObject Create(int caseID)
+        public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
             gameObject = (GameObject)caseFilePrototype.Clone();
@@ -67,7 +67,7 @@ namespace GDPRManager.CreationalPattern
 
             textRenderer.FontName = "NormalTextFont";
 
-            switch (caseID)
+            switch (id)
             {
                 case 1:
                     caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;                    
