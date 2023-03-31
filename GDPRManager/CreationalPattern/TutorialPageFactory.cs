@@ -69,52 +69,52 @@ namespace GDPRManager.CreationalPattern
             {
                 case 1:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "1";
+                    tutorialPage.Text = "Personfoelsom data:\nRace og etnisk oprindelse\nPolitisk overbevisning\nReligioes eller filosofisk overbevisning\nFagforeningsmaessige tilhoersforhold\nGenetiske data\nBiometriske data med henblik paa entydig identifikation\nHelbredsoplysninger\nSeksuelle forhold eller seksuel orientering.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 2:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "2";
+                    tutorialPage.Text = "Personfoelsom data:\nRace og etnisk oprindelse\nPolitisk overbevisning\nReligioes eller filosofisk overbevisning\nFagforeningsmaessige tilhoersforhold\nGenetiske data\nBiometriske data med henblik paa entydig identifikation\nHelbredsoplysninger\nSeksuelle forhold eller seksuel orientering.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 3:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "3";
+                    tutorialPage.Text = "Man er underlagt databeskyttelsesreglerne naar man\nikke agerer i arbejde eller organisationssammenhaeng\nsaa vidt man er en del af virksomheden eller organisationen.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 4:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "4";
+                    tutorialPage.Text = "Personfoelsom data kan udveksles internt i organisationen.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 5:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "5";
+                    tutorialPage.Text = "Man maa opbevare person- og personfoelsom data ved samtykke.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 6:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "6";
+                    tutorialPage.Text = "Man maa kun behandle oplysninger, man har brug for\nog naar man ikke har brug for dem laengere, skal de slettes.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 7:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "7";
+                    tutorialPage.Text = "Ved ophaevning af samtykke skal sletning af\npersondata og personfoelsom data ske hurtigst muligt.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 8:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "8";
+                    tutorialPage.Text = "Ved ophaevelse af en ansaettelseskontrakt ophaeves\ndermed ogsaa samtykke fra den tidligere ansatte.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 9:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "9";
+                    tutorialPage.Text = "Dataoverfoersel i blandt organisationer skal foregaa sikkert.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 10:
                     tutorialPage = gameObject.GetComponent<TutorialPage>() as TutorialPage;
-                    tutorialPage.Text = "10";
+                    tutorialPage.Text = "Ingen hjaelp at hente";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
             }
