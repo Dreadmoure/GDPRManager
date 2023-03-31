@@ -109,11 +109,11 @@ namespace GDPRManager
             Director mouseDirector = new Director(new MouseBuilder());
             gameObjects.Add(mouseDirector.Construct());
 
-            Director approveButtonDirector = new Director(new ApproveButtonBuilder());
-            gameObjects.Add(approveButtonDirector.Construct());
+            //Director approveButtonDirector = new Director(new ApproveButtonBuilder());
+            //gameObjects.Add(approveButtonDirector.Construct());
 
-            Director denyButtonDirector = new Director(new DenyButtonBuilder());
-            gameObjects.Add(denyButtonDirector.Construct());
+            //Director denyButtonDirector = new Director(new DenyButtonBuilder());
+            //gameObjects.Add(denyButtonDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
