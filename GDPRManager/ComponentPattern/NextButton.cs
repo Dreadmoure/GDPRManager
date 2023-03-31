@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
-    public class DenyButton : Clickable
+    public class NextButton : Component
     {
         /// <summary>
         /// sets sprite and position
@@ -15,11 +15,11 @@ namespace GDPRManager.ComponentPattern
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-            spriteRenderer.SetSprite("Sprites\\DenyButtonV2");
-            spriteRenderer.LayerDepth = 0.71f;
+            spriteRenderer.SetSprite("Sprites\\NextButton");
+            spriteRenderer.LayerDepth = 0.81f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.73f, GameWorld.ScreenSize.Y / 1.2f);
-            GameObject.Tag = "DenyButton";
+            GameObject.Tag = "NextButton";
         }
     }
 }
