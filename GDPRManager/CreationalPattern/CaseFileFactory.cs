@@ -43,7 +43,7 @@ namespace GDPRManager.CreationalPattern
             
             SpriteRenderer spriteRenderer = caseFilePrototype.AddComponent(new SpriteRenderer()) as SpriteRenderer;
             caseFilePrototype.Tag = "CaseFile";
-            spriteRenderer.LayerDepth = 0.8f;
+            spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
             spriteRenderer.SetSprite("Sprites\\CaseFile");
             caseFilePrototype.AddComponent(new CaseFile());

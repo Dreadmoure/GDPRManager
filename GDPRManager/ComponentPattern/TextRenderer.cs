@@ -47,7 +47,7 @@ namespace GDPRManager.ComponentPattern
         /// </summary>
         public override void Start()
         {
-            LayerDepth = 0.8f;
+
         }
 
         /// <summary>

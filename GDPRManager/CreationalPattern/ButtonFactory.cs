@@ -57,7 +57,7 @@ namespace GDPRManager.CreationalPattern
         private void NextButtonPrototype()
         {
             nextButtonPrototype = new GameObject();
-            //nextButtonPrototype.AddComponent(new NextButton());
+            nextButtonPrototype.AddComponent(new NextButton());
             nextButtonPrototype.AddComponent(new SpriteRenderer());
             nextButtonPrototype.AddComponent(new Collider());
             nextButtonPrototype.AddComponent(new Clickable());
