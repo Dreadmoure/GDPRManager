@@ -37,11 +37,9 @@ namespace GDPRManager.CreationalPattern
             stickyNotePrototype = new GameObject();
 
             stickyNotePrototype.AddComponent(new StickyNote());
-            SpriteRenderer spriteRenderer = stickyNotePrototype.AddComponent(new SpriteRenderer()) as SpriteRenderer;            
+            stickyNotePrototype.AddComponent(new SpriteRenderer());            
             stickyNotePrototype.AddComponent(new TextRenderer());
-
         }
-
 
         public override GameObject Create(int id)
         {
