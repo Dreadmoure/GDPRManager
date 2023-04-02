@@ -24,22 +24,5 @@ namespace GDPRManager.ComponentPattern
 
             GameObject.Tag = "CaseStack"; 
         }
-
-        //public void Notify(GameEvent gameEvent)
-        //{
-        //    if (gameEvent is CollisionEvent)
-        //    {
-        //        GameObject other = (gameEvent as CollisionEvent).Other;
-
-        //        if (other.Tag == "Mouse")
-        //        {
-        //            SpriteRenderer s = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-
-        //            s.SetSprite("Sprites\\StickyNote");
-
-        //            //ClickHandler.Instance.Execute(this);
-        //        }
-        //    }
-        //}
     }
 }
