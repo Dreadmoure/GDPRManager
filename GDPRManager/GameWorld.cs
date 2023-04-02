@@ -39,8 +39,6 @@ namespace GDPRManager
         private List<GameObject> gameObjects = new List<GameObject>();
         private List<GameObject> destroyGameObjects = new List<GameObject>();
         private List<GameObject> newGameObjects = new List<GameObject>();
-
-        private UI userInterface = UI.Instance;
         #endregion
 
         #region properties
@@ -99,19 +97,9 @@ namespace GDPRManager
             //caseStack is added
             Director caseStackDirector = new Director(new CaseStackBuilder());
             gameObjects.Add(caseStackDirector.Construct());
-            //stickynote is added
-            //Director stickyNoteDirector = new Director(new StickyNoteBuilder());
-            //gameObjects.Add(stickyNoteDirector.Construct());
-            //StickyNoteObject = gameObjects.Last<GameObject>();
             // mouse is added 
             Director mouseDirector = new Director(new MouseBuilder());
             gameObjects.Add(mouseDirector.Construct());
-
-            //Director approveButtonDirector = new Director(new ApproveButtonBuilder());
-            //gameObjects.Add(approveButtonDirector.Construct());
-
-            //Director denyButtonDirector = new Director(new DenyButtonBuilder());
-            //gameObjects.Add(denyButtonDirector.Construct());
 
             //loop that calls awake on all GameObjects
             for (int i = 0; i < gameObjects.Count; i++)
@@ -135,15 +123,13 @@ namespace GDPRManager
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            userInterface.LoadContent(Content);
+            UI.Instance.LoadContent(Content);
 
             //calls start on all gameobjects
             for (int i = 0; i < gameObjects.Count; i++)
             {
                 gameObjects[i].Start();
             }
-
-            
         }
 
         /// <summary>
@@ -156,9 +142,6 @@ namespace GDPRManager
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            //gets a reference to player
-            Player player = (Player)GameWorld.Instance.FindObjectOfType<Player>();
-
             //updates the gametime
             DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -168,17 +151,12 @@ namespace GDPRManager
                 gameObjects[i].Update(gameTime);
             }
 
-            userInterface.Update(gameTime);
-
-            //spawns enemies and minerals
-            //SpawnEnemies();
-            //SpawnMinerals();
+            UI.Instance.Update(gameTime);
 
             base.Update(gameTime);
 
             //calls cleanup
             Cleanup();
-
         }
 
         /// <summary>
@@ -200,10 +178,9 @@ namespace GDPRManager
             }
 
             //we stop drawing
-            userInterface.Draw(_spriteBatch);
+            UI.Instance.Draw(_spriteBatch);
 
             _spriteBatch.End();
-            
 ;
             base.Draw(gameTime);
         }
