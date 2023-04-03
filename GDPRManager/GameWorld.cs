@@ -65,6 +65,8 @@ namespace GDPRManager
         public static Vector2 ScreenSize { get; private set; }
 
         public int CaseFileID { get; set; } = 1;
+
+        public int CaseFileStackSize { get; set; } = 10;
         #endregion
 
         #region constructor
