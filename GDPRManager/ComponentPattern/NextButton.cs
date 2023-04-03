@@ -27,12 +27,12 @@ namespace GDPRManager.ComponentPattern
             if (Hover)
             {
                 SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-                spriteRenderer.SetSprite("Sprites\\StickyNote");
+                spriteRenderer.SetSprite("Sprites\\NextButtonHover");
             }
             else
             {
                 SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-                spriteRenderer.SetSprite("Sprites\\NextButtonV2");
+                spriteRenderer.SetSprite("Sprites\\NextButton");
             }
 
             Hover = false;
