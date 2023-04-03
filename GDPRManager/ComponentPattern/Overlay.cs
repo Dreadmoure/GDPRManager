@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for overlay
+    /// </summary>
     public class Overlay : Component
     {
         /// <summary>

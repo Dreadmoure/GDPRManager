@@ -16,7 +16,10 @@ namespace GDPRManager.BuilderPattern
         /// </summary>
         public void BuildGameObject();
 
-
+        /// <summary>
+        /// for implementation
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject GetResult();
     }
 }

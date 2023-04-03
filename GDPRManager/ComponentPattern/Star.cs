@@ -8,9 +8,12 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for star
+    /// </summary>
     public class Star : Component
     {
-        #region fieldds
+        #region fields
         //array with 2 spaces of textures
         private SpriteRenderer spriteRenderer;
 
@@ -27,13 +30,13 @@ namespace GDPRManager.ComponentPattern
         public int StarID { get; private set; }
 
         /// <summary>
-        /// get or set bool to see if the heart is full or not
+        /// get or set bool to see if the star is full or not
         /// </summary>
         public bool IsFull { get; set; } = true;
         #endregion
 
         /// <summary>
-        /// constructor for heart
+        /// constructor for star
         /// </summary>
         /// <param name="id">id of the star</param>
         /// <param name="position">position of the star</param>
@@ -65,9 +68,9 @@ namespace GDPRManager.ComponentPattern
         }
 
         /// <summary>
-        /// checks each frame if the heart is supposed to not be full
+        /// checks each frame if the star is supposed to not be full
         /// </summary>
-        /// <param name="gameTime"></param>
+        /// <param name="gameTime">we can access the gametime here should we need it</param>
         public override void Update(GameTime gameTime)
         {
             if (IsFull)

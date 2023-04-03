@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for NextButton
+    /// </summary>
     public class NextButton : Clickable
     {
         /// <summary>
-        /// sets sprite and position
+        /// sets sprite, tag and position
         /// </summary>
         public override void Start()
         {
@@ -22,6 +25,10 @@ namespace GDPRManager.ComponentPattern
             GameObject.Tag = "NextButton";
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gameTime">we can access the gametime here should we need it</param>
         public override void Update(GameTime gameTime)
         {
             if (Hover)

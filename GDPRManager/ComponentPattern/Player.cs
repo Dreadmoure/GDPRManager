@@ -13,7 +13,7 @@ namespace GDPRManager.ComponentPattern
 {
 
     /// <summary>
-    /// class for the player
+    /// class for the player....do we even need this?
     /// </summary>
     public class Player : Component
     {

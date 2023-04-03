@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for a TutorialPage
+    /// </summary>
     public class TutorialPage : Component
     {
+        /// <summary>
+        /// property used for getting and setting the text on the TutorialPage
+        /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// sets sprite and position
+        /// sets sprite, scale, layer, tag, font and position
         /// </summary>
         public override void Start()
         {

@@ -9,7 +9,7 @@ using GDPRManager.ComponentPattern;
 namespace GDPRManager.CommandPattern
 {
     /// <summary>
-    /// class for the movecommand
+    /// class for the movecommand....delete?
     /// </summary>
     public class PauseCommand : ICommand<Player>
     {

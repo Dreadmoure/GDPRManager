@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for ApproveButton
+    /// </summary>
     public class ApproveButton : Clickable
     {
         /// <summary>
-        /// sets sprite and position
+        /// sets sprite, tag and position
         /// </summary>
         public override void Start()
         {
@@ -24,6 +27,10 @@ namespace GDPRManager.ComponentPattern
             GameObject.Tag = "ApproveButton";
         }
 
+        /// <summary>
+        /// method for updating the sprite, for hover effects
+        /// </summary>
+        /// <param name="gameTime">we can access the gametime should we need it</param>
         public override void Update(GameTime gameTime)
         {
             if (Hover)

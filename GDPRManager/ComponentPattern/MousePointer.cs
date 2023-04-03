@@ -11,11 +11,19 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for the mousepointer used to click and collide with other objects
+    /// </summary>
     public class MousePointer : Component, IGameListener
     {
+        #region fields
         private Vector2 mousePosition;
         private MouseState mouseState;
+        #endregion
 
+        /// <summary>
+        /// method for setting sprite and tag
+        /// </summary>
         public override void Start()
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
@@ -26,6 +34,10 @@ namespace GDPRManager.ComponentPattern
             GameObject.Tag = "Mouse";
         }
 
+        /// <summary>
+        /// Method for updating the mouse position
+        /// </summary>
+        /// <param name="gameTime">we can access the gametime should we need it</param>
         public override void Update(GameTime gameTime)
         {
             mouseState = Mouse.GetState();
@@ -34,6 +46,10 @@ namespace GDPRManager.ComponentPattern
             GameObject.Transform.Position = new Vector2(mousePosition.X, mousePosition.Y);
         }
 
+        /// <summary>
+        /// handles gameevents
+        /// </summary>
+        /// <param name="gameEvent">the gameevent</param>
         public void Notify(GameEvent gameEvent)
         {
             if (gameEvent is CollisionEvent)

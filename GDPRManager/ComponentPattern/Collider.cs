@@ -65,7 +65,7 @@ namespace GDPRManager.ComponentPattern
         /// <summary>
         /// updates each frame
         /// </summary>
-        /// <param name="gameTime"></param>
+        /// <param name="gameTime">we can acces the renderer through this</param>
         public override void Update(GameTime gameTime)
         {
             //UpdatePixelCollider();
@@ -83,18 +83,18 @@ namespace GDPRManager.ComponentPattern
         //    DrawRectangle(CollisionBox, spriteBatch);
         //}
 
-        public void DrawRectangle(Rectangle collisionBox, SpriteBatch spriteBatch)
-        {
-            Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
-            Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
-            Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
-            Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
+        //public void DrawRectangle(Rectangle collisionBox, SpriteBatch spriteBatch)
+        //{
+        //    Rectangle topLine = new Rectangle(collisionBox.X, collisionBox.Y, collisionBox.Width, 1);
+        //    Rectangle bottomLine = new Rectangle(collisionBox.X, collisionBox.Y + collisionBox.Height, collisionBox.Width, 1);
+        //    Rectangle rightLine = new Rectangle(collisionBox.X + collisionBox.Width, collisionBox.Y, 1, collisionBox.Height);
+        //    Rectangle leftLine = new Rectangle(collisionBox.X, collisionBox.Y, 1, collisionBox.Height);
 
-            spriteBatch.Draw(texture, topLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(texture, bottomLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(texture, rightLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
-            spriteBatch.Draw(texture, leftLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
-        }
+        //    spriteBatch.Draw(texture, topLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
+        //    spriteBatch.Draw(texture, bottomLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
+        //    spriteBatch.Draw(texture, rightLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
+        //    spriteBatch.Draw(texture, leftLine, null, Color.Red, 0f, Vector2.Zero, SpriteEffects.None, 1);
+        //}
 
         /// <summary>
         /// method for checking if objects collide
@@ -174,17 +174,17 @@ namespace GDPRManager.ComponentPattern
         /// <summary>
         /// updates the position of the pixels
         /// </summary>
-        private void UpdatePixelCollider()
-        {
-            if (loaded)
-            {
-                for (int i = 0; i < rectangles.Value.Count; i++)
-                {
-                    rectangles.Value[i].UpdatePosition(GameObject, spriteRenderer.Sprite.Width, spriteRenderer.Sprite.Height);
-                }
-            }
+        //private void UpdatePixelCollider()
+        //{
+        //    if (loaded)
+        //    {
+        //        for (int i = 0; i < rectangles.Value.Count; i++)
+        //        {
+        //            rectangles.Value[i].UpdatePosition(GameObject, spriteRenderer.Sprite.Width, spriteRenderer.Sprite.Height);
+        //        }
+        //    }
 
-        }
+        //}
         #endregion
     }
 }

@@ -9,29 +9,35 @@ using Microsoft.Xna.Framework.Content;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for the TextRenderer
+    /// </summary>
     public class TextRenderer : Component
     {
 
         #region properties
         /// <summary>
-        /// Property for getting or setting the sprite
+        /// Property for getting or setting the text
         /// </summary>
         public string Text { get; set; }
 
         /// <summary>
-        /// Property for getting or setting the font for normal text
+        /// Property for getting or setting the font
         /// </summary>
         public SpriteFont TextFont { get; private set; }
 
+        /// <summary>
+        /// property used to getting or set the font with a string
+        /// </summary>
         public string FontName { get; set; }
 
         /// <summary>
-        /// Property for getting or setting the origin of the sprite
+        /// Property for getting or setting the origin of the text
         /// </summary>
         public Vector2 Origin { get; set; }
 
         /// <summary>
-        /// Property for getting or setting the layerdepth of the image
+        /// Property for getting or setting the layerdepth of the text
         /// </summary>
         public float LayerDepth { get; set; }
 
@@ -40,22 +46,18 @@ namespace GDPRManager.ComponentPattern
         /// </summary>
         public Vector2 Position { get; private set; }
 
+        /// <summary>
+        /// Property for getting or setting the rotation of the text
+        /// </summary>
         public float Rotation { get; set; }
         #endregion
 
         #region methods
         /// <summary>
-        /// method for setting the origin for the text by using measurestring
+        /// method for setting the text and its position
         /// </summary>
-        public override void Start()
-        {
-
-        }
-
-        /// <summary>
-        /// method for setting the sprite based on the input string
-        /// </summary>
-        /// <param name="spriteName">path and name of the file</param>
+        /// <param name="text">the text we want to draw</param>
+        /// <param name="position">where we want to draw it</param>
         public void SetText(string text, Vector2 position)
         {
             TextFont = GameWorld.Instance.Content.Load<SpriteFont>($"Fonts\\{FontName}");
@@ -64,7 +66,7 @@ namespace GDPRManager.ComponentPattern
         }
 
         /// <summary>
-        /// method for drawing a sprite to the screen
+        /// method for drawing a text to the screen
         /// </summary>
         /// <param name="spriteBatch">passed in from gameworld so we can draw through it</param>
         public override void Draw(SpriteBatch spriteBatch)

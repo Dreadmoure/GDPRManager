@@ -10,8 +10,12 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CommandPattern
 {
+    /// <summary>
+    /// class for ClickCommand
+    /// </summary>
     public class ClickCommand : ICommand<Clickable>
     {
+        #region fields
         private bool isCaseActive = false;
         private GameObject caseFile;
         private GameObject tutorialPage;
@@ -19,13 +23,21 @@ namespace GDPRManager.CommandPattern
 
         private GameObject approveButton; 
         private GameObject denyButton; 
-        private GameObject nextButton; 
+        private GameObject nextButton;
+        #endregion
 
+        /// <summary>
+        /// private constructor for ClickCommand
+        /// </summary>
         public ClickCommand()
         {
 
         }
 
+        /// <summary>
+        /// Method for checking what is being clicked on
+        /// </summary>
+        /// <param name="clickable">the clickable object we click on</param>
         public void Execute(Clickable clickable)
         {
             if (clickable.GameObject.Tag == "CaseStack" && !isCaseActive && GameWorld.Instance.CaseFileID <= 10)
@@ -43,13 +55,10 @@ namespace GDPRManager.CommandPattern
                 stickyNote = StickyNoteFactory.Instance.Create(GameWorld.Instance.CaseFileID);
                 GameWorld.Instance.Instantiate(stickyNote);
 
-
                 // make button 
                 nextButton = new GameObject();
                 nextButton = ButtonFactory.Instance.Create(3);
                 GameWorld.Instance.Instantiate(nextButton);
-
-                //Debug.WriteLine("Clicked on CaseStack");
             }
             else if(clickable.GameObject.Tag == "NextButton" && isCaseActive)
             {
@@ -84,8 +93,6 @@ namespace GDPRManager.CommandPattern
                 {
                     GameOver();
                 }
-                
-                //Debug.WriteLine("Clicked on ApproveButton");
             }
             else if(clickable.GameObject.Tag == "DenyButton" && isCaseActive)
             {
@@ -112,6 +119,9 @@ namespace GDPRManager.CommandPattern
             }
         }
 
+        /// <summary>
+        /// method for setting the text on the stickynote
+        /// </summary>
         private void SetStickyNoteText()
         {
             CaseFile casefile = caseFile.GetComponent<CaseFile>() as CaseFile;
@@ -120,6 +130,9 @@ namespace GDPRManager.CommandPattern
             note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
         }
 
+        /// <summary>
+        /// method for removing the text on the stickynote
+        /// </summary>
         private void RemoveStickyNoteText()
         {
             CaseFile casefile = caseFile.GetComponent<CaseFile>() as CaseFile;
@@ -128,6 +141,9 @@ namespace GDPRManager.CommandPattern
             note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
         }
 
+        /// <summary>
+        /// method for gameover, which is being called when there are no more cases left
+        /// </summary>
         private void GameOver()
         {
             GameObject exitButton = ButtonFactory.Instance.Create(4);

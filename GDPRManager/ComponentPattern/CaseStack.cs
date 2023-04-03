@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for CaseStack
+    /// </summary>
     public class CaseStack : Clickable
     {
         /// <summary>
-        /// sets sprite and position
+        /// sets sprite, tag and position
         /// </summary>
         public override void Start()
         {
@@ -26,6 +29,10 @@ namespace GDPRManager.ComponentPattern
             GameObject.Tag = "CaseStack"; 
         }
 
+        /// <summary>
+        /// Method used for updating the sprite on the castStack for hovereffects
+        /// </summary>
+        /// <param name="gameTime">we can access the gametime should we need it</param>
         public override void Update(GameTime gameTime)
         {
             if (Hover)

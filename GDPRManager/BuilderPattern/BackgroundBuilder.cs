@@ -30,6 +30,10 @@ namespace GDPRManager.BuilderPattern
             gameObject.AddComponent(new SpriteRenderer());
         }
 
+        /// <summary>
+        /// Method for returning the gameobject
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject GetResult()
         {
             return gameObject;

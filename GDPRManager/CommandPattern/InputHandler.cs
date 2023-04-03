@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace GDPRManager.CommandPattern
 {
     /// <summary>
-    /// class for the imputhandler
+    /// class for the imputhandler...delete?
     /// </summary>
     public class InputHandler
     {

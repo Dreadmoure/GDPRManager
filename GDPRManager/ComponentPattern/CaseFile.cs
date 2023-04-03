@@ -7,16 +7,30 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for CaseFile
+    /// </summary>
     public class CaseFile : Component
     {
+        #region properties
+        /// <summary>
+        /// property for getting or setting the solution of a CaseFile
+        /// </summary>
         public string Solution { get; set; }
 
+        /// <summary>
+        /// property for getting or setting the Text of a CaseFile
+        /// </summary>
         public string Text { get; set; }
 
+        /// <summary>
+        /// property for getting or setting the Text on the StickyNote
+        /// </summary>
         public string StickyNoteText { get; set; }
+        #endregion
 
         /// <summary>
-        /// sets sprite and position
+        /// sets sprite, tag, font and position
         /// </summary>
         public override void Start()
         {
@@ -32,9 +46,6 @@ namespace GDPRManager.ComponentPattern
             textRenderer.LayerDepth = 0.71f;
             textRenderer.FontName = "NormalTextFont";
             Text = "";
-            //textRenderer.SetText(Text, GameObject.Transform.Position);
         }
-        
-
     }
 }
