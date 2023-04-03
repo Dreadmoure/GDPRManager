@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace GDPRManager.CreationalPattern
 {
     /// <summary>
-    /// class for making minerals of different types
+    /// class for making different casefiles
     /// </summary>
     public class CaseFileFactory : Factory
     {
@@ -31,11 +31,18 @@ namespace GDPRManager.CreationalPattern
 
         private GameObject caseFilePrototype;
 
+        /// <summary>
+        /// private constructor for CaseFileFactory
+        /// </summary>
         private CaseFileFactory()
         {
             CreateCaseFilePrototype();
         }
 
+        #region methods
+        /// <summary>
+        /// Method for creating a prototype of the CaseFile
+        /// </summary>
         private void CreateCaseFilePrototype()
         {
             caseFilePrototype = new GameObject();
@@ -49,8 +56,8 @@ namespace GDPRManager.CreationalPattern
         /// <summary>
         /// Method for creating a gameobject
         /// </summary>
-        /// <param name="type">of a type based on an enum</param>
-        /// <returns>the created gameobject</returns>
+        /// <param name="id">which type of CaseFile we want to make</param>
+        /// <returns></returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
@@ -199,5 +206,6 @@ namespace GDPRManager.CreationalPattern
             }
             return gameObject;
         }
+        #endregion
     }
 }
