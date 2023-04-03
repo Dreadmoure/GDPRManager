@@ -28,6 +28,7 @@ namespace GDPRManager.ComponentPattern
             TextRenderer = GameObject.GetComponent<TextRenderer>() as TextRenderer;
             TextRenderer.LayerDepth = 0.51f;
             TextRenderer.FontName = "StickyNoteFont";
+            TextRenderer.Rotation = -0.05f;
             Text = "";
             TextRenderer.SetText(Text, GameObject.Transform.Position);
         }

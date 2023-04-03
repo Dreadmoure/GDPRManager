@@ -39,6 +39,8 @@ namespace GDPRManager
         private List<GameObject> gameObjects = new List<GameObject>();
         private List<GameObject> destroyGameObjects = new List<GameObject>();
         private List<GameObject> newGameObjects = new List<GameObject>();
+
+        private Star[] stars;
         #endregion
 
         #region properties
@@ -90,6 +92,19 @@ namespace GDPRManager
         /// </summary>
         protected override void Initialize()
         {
+            stars = new Star[3];
+            for (int i = 0; i < stars.Length; i++)
+            {
+                Director starDirector = new Director(new StarBuilder(i));
+                gameObjects.Add(starDirector.Construct());
+
+
+                stars[i] = (Star)gameObjects[i].GetComponent<Star>();
+                stars[i].IsFull = false;
+            }
+
+            
+
             //Player is added
             Director playerDirector = new Director(new PlayerBuilder());
             gameObjects.Add(playerDirector.Construct());
@@ -154,6 +169,8 @@ namespace GDPRManager
             }
 
             UI.Instance.Update(gameTime);
+
+            UpdateStars();
 
             base.Update(gameTime);
 
@@ -265,6 +282,28 @@ namespace GDPRManager
                 }
             }
             return null;
+        }
+
+        private void UpdateStars()
+        {
+            if(Score < 300)
+            {
+                stars[2].IsFull = false;
+            }
+            if(Score >= 300 && Score < 600)
+            {
+                stars[2].IsFull = true;
+                stars[1].IsFull = false;
+            }
+            if(Score >= 600 && Score < 900)
+            {
+                stars[1].IsFull = true;
+                stars[0].IsFull = false;
+            }
+            if(Score >= 900)
+            {
+                stars[0].IsFull = true;
+            }
         }
         #endregion
     }

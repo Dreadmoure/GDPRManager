@@ -61,6 +61,7 @@ namespace GDPRManager.CreationalPattern
 
             TextRenderer textRenderer = gameObject.GetComponent<TextRenderer>() as TextRenderer;
             textRenderer.FontName = "NormalTextFont";
+            textRenderer.Rotation = 0;
 
             switch (id)
             {
@@ -68,7 +69,8 @@ namespace GDPRManager.CreationalPattern
                     caseFile.Text = "Anklage\nFirma A har delt personfoelsom data.\n\n" +
                                     "Scenarie\nEn ansat i Firma A har ved et uheld vedhaeftet fornavn\n" +
                                     "efternavn og deres politiske overbevisning, paa en anden kunde\n" +
-                                    "i en mail til en helt tredje som er en privatperson.";
+                                    "i en mail til en helt tredje som er en privatperson.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "- Race og etnicitet\n- Politik\n- Religion eller filosofi\n- Fagforening\n- Helbred\n";
                     caseFile.Solution = "Approve";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -76,7 +78,8 @@ namespace GDPRManager.CreationalPattern
                 case 2:
                     caseFile.Text = "Anklage\nPerson A har anklaget sin nabo, person B\nfor at dele personfoelsom data.\n\n" +
                                     "Scenarie\nPerson B har gjort grin med Person A paa Facebook\n" +
-                                    "hvor de udstiller As etnicitet.";
+                                    "hvor de udstiller As etnicitet.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "- Regler omfatter:\n- Organisationer\n- Virksomheder\n -Ikke privatpersoner\n";
                     caseFile.Solution = "Deny";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -86,7 +89,8 @@ namespace GDPRManager.CreationalPattern
                                     "Scenarie\nPerson B er en laege som har sin egen private praksis.\n" +
                                     "Person A og person B havde en samtale omkring en klient fra Bs arbejde\n" +
                                     "hvor B naevnte klienten ved navn og syntes det var\n" +
-                                    "forfaerdeligt at de havde kraeft.";
+                                    "forfaerdeligt at de havde kraeft.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "- Gaelder uden for jobbet";
                     caseFile.Solution = "Approve";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -96,7 +100,8 @@ namespace GDPRManager.CreationalPattern
                                     "Scenarie\nPerson A har faaet kendskab til at firma B\n" +
                                     "har delt personfoelsom data blandt medarbejdere.\n" +
                                     "Person A ved dog ikke hvilke personfoelsom data det omhandler\n" +
-                                    "men ved at det er sket.\n";
+                                    "men ved at det er sket.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "-Internt er ok";
                     caseFile.Solution = "Deny";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -107,7 +112,8 @@ namespace GDPRManager.CreationalPattern
                                     "styret af firma B, hvor A har fundet ud af at B opbevarer deres\n" +
                                     "persondata som indbefatter deres koen.\n" +
                                     "Ved koeb af en vare har firma B nogle formularer som kunden skal\n" +
-                                    "godkende som omhandler haandtering og brug af data.\n";
+                                    "godkende som omhandler haandtering og brug af data.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "- OK ved samtykke";
                     caseFile.Solution = "Deny";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -119,7 +125,8 @@ namespace GDPRManager.CreationalPattern
                                     "om hvilket politiske parti de stoetter.\n" +
                                     "Den data anvendes til statistikker.\n" +
                                     "Politiet har undersoegt sagen og fundet ud af at firma B\n" +
-                                    "falsificerer deres statistikker.\n";                    
+                                    "falsificerer deres statistikker.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";                    
                     caseFile.StickyNoteText = "- Kun det man\nhar brug for";
                     caseFile.Solution = "Approve";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -131,7 +138,8 @@ namespace GDPRManager.CreationalPattern
                                     "om at ophaeve samtykket angaaende deres persondata.\n" +
                                     "Firma B har set mailen og svaret at de fjerner data med det samme.\n" +
                                     "Den dataansvarlige hos Firma B har vaeret syg i et par dage\n" +
-                                    "og derfor foerst slettet data, efter de kom tilbage paa jobbet.\n";
+                                    "og derfor foerst slettet data, efter de kom tilbage paa jobbet.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "- Slet hurtigst muligt";
                     caseFile.Solution = "Deny";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -145,7 +153,8 @@ namespace GDPRManager.CreationalPattern
                                     "person A, i en markedsfoeringsvideo som blev offentliggjort paa Facebook.\n" +
                                     "Omvendt anfoerte Hadsund Apotek, at Hadsund Apotek kunne\n" +
                                     "benytte billederne uden klagers samtykke, da Hadsund Apoteks legitime\n" +
-                                    "interesse heri oversteg klagers interesser.\n";
+                                    "interesse heri oversteg klagers interesser.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "Ved kontraktophoevelse\n- Ophoeves samtykke\n";
                     caseFile.Solution = "Approve";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -163,7 +172,8 @@ namespace GDPRManager.CreationalPattern
                                     "paagaeldende e-mail muligvis kunne vaere krypteret paa\n" +
                                     "transportlaget med TLS 1.1.\n" +
                                     "Kommunen kontaktede hurtigt efter afsendelsen modtageren\n" +
-                                    "og sikrede sig at e-mailen var kommet frem til rette modtager.";
+                                    "og sikrede sig at e-mailen var kommet frem til rette modtager.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "Er det sikkert?";
                     caseFile.Solution = "Approve";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
@@ -180,7 +190,8 @@ namespace GDPRManager.CreationalPattern
                                     "-Prissaetningen af betalingsalternativet er ikke urimelig hoej\n" +
                                     "dvs. at prissaetningen ikke er saa hoej, at den registrerede reelt\n" +
                                     "og i praksis ikke har et valg mellem betalingsalternativet\n" +
-                                    "og at give sit samtykke.";
+                                    "og at give sit samtykke.\n\n\n" +
+                                    "Vil du godkende eller afvise anklagen?";
                     caseFile.StickyNoteText = "Samtykke?";
                     caseFile.Solution = "Deny";
                     textRenderer.SetText(caseFile.Text, gameObject.Transform.Position);
