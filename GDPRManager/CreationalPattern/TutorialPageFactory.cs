@@ -40,7 +40,7 @@ namespace GDPRManager.CreationalPattern
             TutorialPagePrototype();
         }
 
-        #region
+        #region method
         /// <summary>
         /// Method for creating 
         /// </summary>
@@ -56,7 +56,7 @@ namespace GDPRManager.CreationalPattern
         /// Method for creating a gameobject
         /// </summary>
         /// <param name="id">the type of tutorialPage we want to make</param>
-        /// <returns></returns>
+        /// <returns>GameObject</returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();

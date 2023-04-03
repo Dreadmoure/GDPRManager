@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CreationalPattern
 {
+    /// <summary>
+    /// class for a overlayfactory which inherits from factory
+    /// </summary>
     public class OverlayFactory : Factory
     {
         #region singleton
@@ -27,11 +30,17 @@ namespace GDPRManager.CreationalPattern
 
         private GameObject overlayPrototype; 
 
+        /// <summary>
+        /// private constructor for overlayFactory
+        /// </summary>
         private OverlayFactory()
         {
             CreateOverlayPrototype(); 
         }
 
+        /// <summary>
+        /// method for creating a overlayPrototype
+        /// </summary>
         private void CreateOverlayPrototype()
         {
             overlayPrototype = new GameObject(); 
@@ -39,6 +48,11 @@ namespace GDPRManager.CreationalPattern
             overlayPrototype.AddComponent(new SpriteRenderer());
         }
 
+        /// <summary>
+        /// method for creating a gameobject
+        /// </summary>
+        /// <param name="id">the type of overlay we want to make</param>
+        /// <returns>GameObject</returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = (GameObject)overlayPrototype.Clone(); 
