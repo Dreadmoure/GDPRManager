@@ -73,15 +73,15 @@ namespace GDPRManager.ComponentPattern
         }
 
         //use this if you want to draw the collisionboxes and pixelcollision
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            foreach (RectangleData rd in rectangles.Value)
-            {
-                DrawRectangle(rd.Rectangle, spriteBatch);
-            }
+        //public override void Draw(SpriteBatch spriteBatch)
+        //{
+        //    foreach (RectangleData rd in rectangles.Value)
+        //    {
+        //        DrawRectangle(rd.Rectangle, spriteBatch);
+        //    }
 
-            DrawRectangle(CollisionBox, spriteBatch);
-        }
+        //    DrawRectangle(CollisionBox, spriteBatch);
+        //}
 
         public void DrawRectangle(Rectangle collisionBox, SpriteBatch spriteBatch)
         {
