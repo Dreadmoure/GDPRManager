@@ -28,12 +28,14 @@ namespace GDPRManager.CreationalPattern
         private GameObject approveButtonPrototype; 
         private GameObject denyButtonPrototype; 
         private GameObject nextButtonPrototype; 
+        private GameObject exitButtonPrototype; 
 
         private ButtonFactory()
         {
             ApproveButtonPrototype();
             DenyButtonPrototype();
             NextButtonPrototype(); 
+            ExitButtonPrototype(); 
         }
 
         private void ApproveButtonPrototype()
@@ -63,6 +65,15 @@ namespace GDPRManager.CreationalPattern
             nextButtonPrototype.AddComponent(new Clickable());
         }
 
+        private void ExitButtonPrototype()
+        {
+            exitButtonPrototype = new GameObject();
+            exitButtonPrototype.AddComponent(new ExitButton());
+            exitButtonPrototype.AddComponent(new SpriteRenderer());
+            exitButtonPrototype.AddComponent(new Collider());
+            exitButtonPrototype.AddComponent(new Clickable());
+        }
+
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
@@ -77,6 +88,9 @@ namespace GDPRManager.CreationalPattern
                     break;
                 case 3:
                     gameObject = (GameObject)nextButtonPrototype.Clone();
+                    break;
+                case 4:
+                    gameObject = (GameObject)exitButtonPrototype.Clone();
                     break; 
             }
 

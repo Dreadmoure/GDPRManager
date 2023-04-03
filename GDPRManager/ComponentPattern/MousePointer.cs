@@ -67,7 +67,8 @@ namespace GDPRManager.ComponentPattern
                 }
                 if (other.Tag == "ExitButton")
                 {
-
+                    ExitButton exitButton = other.GetComponent<ExitButton>() as ExitButton;
+                    exitButton.Hover = true;
                 }
             }
         }
