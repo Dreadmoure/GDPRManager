@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CreationalPattern
 {
+
+    /// <summary>
+    /// class for making different TutorialPages
+    /// </summary>
     public class TutorialPageFactory : Factory
     {
         #region singleton
@@ -28,12 +32,19 @@ namespace GDPRManager.CreationalPattern
 
         private GameObject tutorialPagePrototype;
 
+        /// <summary>
+        /// private constructor for the tutorialPageFactory
+        /// </summary>
         private TutorialPageFactory()
         {
-            CreateCaseFilePrototype();
+            TutorialPagePrototype();
         }
 
-        private void CreateCaseFilePrototype()
+        #region
+        /// <summary>
+        /// Method for creating 
+        /// </summary>
+        private void TutorialPagePrototype()
         {
             tutorialPagePrototype = new GameObject();
             tutorialPagePrototype.AddComponent(new TutorialPage());
@@ -44,8 +55,8 @@ namespace GDPRManager.CreationalPattern
         /// <summary>
         /// Method for creating a gameobject
         /// </summary>
-        /// <param name="type">of a type based on an enum</param>
-        /// <returns>the created gameobject</returns>
+        /// <param name="id">the type of tutorialPage we want to make</param>
+        /// <returns></returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
@@ -134,5 +145,6 @@ namespace GDPRManager.CreationalPattern
             }
             return gameObject;
         }
+        #endregion
     }
 }
