@@ -40,14 +40,34 @@ namespace GDPRManager.ComponentPattern
             {
                 GameObject other = (gameEvent as CollisionEvent).Other;
 
-                if (other.Tag == "CaseStack" || other.Tag == "ApproveButton" || other.Tag == "DenyButton" || other.Tag == "NextButton")
+                if (other.Tag == "CaseStack" || other.Tag == "ApproveButton" || other.Tag == "DenyButton" || other.Tag == "NextButton" || other.Tag == "ExitButton")
+                {
+                    Clickable clickable = other.GetComponent<Clickable>() as Clickable;
+                    ClickHandler.Instance.Execute(clickable);
+                }
+                if(other.Tag == "CaseStack")
+                {
+                    CaseStack caseStack = other.GetComponent<CaseStack>() as CaseStack;
+                    caseStack.Hover = true; 
+                }
+                if(other.Tag == "ApproveButton")
+                {
+                    ApproveButton approveButton = other.GetComponent<ApproveButton>() as ApproveButton;
+                    approveButton.Hover = true;
+                }
+                if (other.Tag == "DenyButton")
+                {
+                    DenyButton denyButton = other.GetComponent<DenyButton>() as DenyButton;
+                    denyButton.Hover = true;
+                }
+                if (other.Tag == "NextButton")
+                {
+                    NextButton nextButton = other.GetComponent<NextButton>() as NextButton;
+                    nextButton.Hover = true;
+                }
+                if (other.Tag == "ExitButton")
                 {
 
-                    Clickable clickable = other.GetComponent<Clickable>() as Clickable;
-
-                    ClickHandler.Instance.Execute(clickable);
-
-                    //Debug.WriteLine("collision with mouse"); 
                 }
             }
         }
