@@ -64,8 +64,14 @@ namespace GDPRManager
         /// </summary>
         public static Vector2 ScreenSize { get; private set; }
 
+        /// <summary>
+        /// Property for getting and setting the CaseFileID used to identify what case we are at
+        /// </summary>
         public int CaseFileID { get; set; } = 1;
 
+        /// <summary>
+        /// Propert for getting and setting the stacksize of the stack, dictates how many cases are in the game/stack
+        /// </summary>
         public int CaseFileStackSize { get; set; } = 10;
         #endregion
 
@@ -92,6 +98,7 @@ namespace GDPRManager
         /// </summary>
         protected override void Initialize()
         {
+            //Stars are added
             stars = new Star[3];
             for (int i = 0; i < stars.Length; i++)
             {
@@ -102,8 +109,6 @@ namespace GDPRManager
                 stars[i] = (Star)gameObjects[i].GetComponent<Star>();
                 stars[i].IsFull = false;
             }
-
-            
 
             //Player is added
             Director playerDirector = new Director(new PlayerBuilder());
@@ -140,6 +145,7 @@ namespace GDPRManager
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            //loads the content in the UI
             UI.Instance.LoadContent(Content);
 
             //calls start on all gameobjects
@@ -168,8 +174,10 @@ namespace GDPRManager
                 gameObjects[i].Update(gameTime);
             }
 
+            //updates the UI
             UI.Instance.Update(gameTime);
 
+            //updates the stars based on points
             UpdateStars();
 
             base.Update(gameTime);
@@ -196,9 +204,10 @@ namespace GDPRManager
                 gameObjects[i].Draw(_spriteBatch);
             }
 
-            //we stop drawing
+            //draw the ui
             UI.Instance.Draw(_spriteBatch);
 
+            //we stop drawing
             _spriteBatch.End();
 ;
             base.Draw(gameTime);
@@ -234,6 +243,7 @@ namespace GDPRManager
                 newGameObjects[i].Awake();
                 newGameObjects[i].Start();
 
+                //if no collider is on the new game object, and there needs to be, adds one
                 Collider collider = (Collider)newGameObjects[i].GetComponent<Collider>();
                 if(collider != null)
                 {
@@ -245,14 +255,9 @@ namespace GDPRManager
             for (int i = 0; i < destroyGameObjects.Count; i++)
             {
                 gameObjects.Remove(destroyGameObjects[i]);
-                Collider collider = (Collider)destroyGameObjects[i].GetComponent<Collider>();
 
-                //// if gameobject is a projectile, remove the collision event 
-                //if(destroyGameObjects[i].GetComponent<Projectile>() != null)
-                //{
-                //    Projectile projectile = destroyGameObjects[i].GetComponent<Projectile>() as Projectile; 
-                //    collider.CollisionEvent.Detach(projectile);
-                //}
+                //remove collider
+                Collider collider = (Collider)destroyGameObjects[i].GetComponent<Collider>();
 
                 if (collider != null)
                 {
@@ -284,6 +289,9 @@ namespace GDPRManager
             return null;
         }
 
+        /// <summary>
+        /// method for updating the stars, based on points it updates it to either empty star of full star
+        /// </summary>
         private void UpdateStars()
         {
             if(Score < 300)
