@@ -14,7 +14,7 @@ namespace GDPRManager.ComponentPattern
         //array with 2 spaces of textures
         private SpriteRenderer spriteRenderer;
 
-        private static string[] spriteNames = new string[] { "Hearts\\HeartFullV2", "Hearts\\HeartEmptyV2" }; //change paths
+        private static string[] spriteNames = new string[] { "Sprites\\StarFull", "Sprites\\StarEmpty" }; //change paths
         private Texture2D[] sprites = new Texture2D[spriteNames.Length];
 
         private Vector2 position;
@@ -60,8 +60,8 @@ namespace GDPRManager.ComponentPattern
 
             spriteRenderer.Sprite = sprites[0];
 
-            spriteRenderer.LayerDepth = 0.9f;
-            spriteRenderer.Scale = 0.1f;
+            spriteRenderer.LayerDepth = 1.0f;
+            spriteRenderer.Scale = 1f;
         }
 
         /// <summary>
@@ -70,7 +70,11 @@ namespace GDPRManager.ComponentPattern
         /// <param name="gameTime"></param>
         public override void Update(GameTime gameTime)
         {
-            if (!IsFull)
+            if (IsFull)
+            {
+                spriteRenderer.Sprite = sprites[0];
+            }
+            else
             {
                 spriteRenderer.Sprite = sprites[1];
             }
