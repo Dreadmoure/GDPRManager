@@ -13,6 +13,13 @@ namespace GDPRManager.ComponentPattern
 {
     public class Clickable : Component
     {
+        public bool Hover { get; set; } 
+
+        public override void Update(GameTime gameTime)
+        {
+            
+        }
+
         public void ResolveCase(string answer, GameObject gameObject)
         {
             CaseFile caseFile = gameObject.GetComponent<CaseFile>() as CaseFile;

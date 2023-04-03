@@ -21,5 +21,21 @@ namespace GDPRManager.ComponentPattern
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.65f, GameWorld.ScreenSize.Y / 7.6f);
             GameObject.Tag = "NextButton";
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Hover)
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\StickyNote");
+            }
+            else
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\NextButtonV2");
+            }
+
+            Hover = false;
+        }
     }
 }

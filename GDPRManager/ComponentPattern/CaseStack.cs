@@ -3,6 +3,7 @@ using GDPRManager.ObserverPattern;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,22 @@ namespace GDPRManager.ComponentPattern
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 6f, GameWorld.ScreenSize.Y / 1.5f);
 
             GameObject.Tag = "CaseStack"; 
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Hover)
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\StickyNote");
+            }
+            else
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\CaseStackV2");
+            }
+
+            Hover = false; 
         }
     }
 }
