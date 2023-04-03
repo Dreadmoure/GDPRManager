@@ -24,10 +24,15 @@ namespace GDPRManager.ComponentPattern
             spriteRenderer.SetSprite("Sprites\\CaseFile");
             spriteRenderer.LayerDepth = 0.7f;
             spriteRenderer.Scale = 1f;
-            Text = "";
+            
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
+            GameObject.Tag = "CaseFile";
+
             TextRenderer textRenderer = GameObject.GetComponent<TextRenderer>() as TextRenderer;
             textRenderer.LayerDepth = 0.71f;
-            //GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
+            textRenderer.FontName = "NormalTextFont";
+            Text = "";
+            //textRenderer.SetText(Text, GameObject.Transform.Position);
         }
         
 

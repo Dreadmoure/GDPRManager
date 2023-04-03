@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,13 @@ namespace GDPRManager.ComponentPattern
             spriteRenderer.SetSprite("Sprites\\CaseFile");
             spriteRenderer.LayerDepth = 0.8f;
             spriteRenderer.Scale = 1f;
+
+            GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2f, GameWorld.ScreenSize.Y / 2f);
+            GameObject.Tag = "CaseFile";
+
+            TextRenderer textRenderer = GameObject.GetComponent<TextRenderer>() as TextRenderer;
+            textRenderer.LayerDepth = 0.81f;
+            textRenderer.FontName = "NormalTextFont";
             Text = "";
         }
     }
