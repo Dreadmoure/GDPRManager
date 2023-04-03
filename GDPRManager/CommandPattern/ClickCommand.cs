@@ -31,6 +31,7 @@ namespace GDPRManager.CommandPattern
             if (clickable.GameObject.Tag == "CaseStack" && !isCaseActive && GameWorld.Instance.CaseFileID <= 10)
             {
                 isCaseActive = true;
+                GameWorld.Instance.CaseFileStackSize--; 
 
                 caseFile = new GameObject();
                 caseFile = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
