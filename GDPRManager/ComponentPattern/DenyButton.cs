@@ -21,5 +21,21 @@ namespace GDPRManager.ComponentPattern
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 1.73f, GameWorld.ScreenSize.Y / 1.2f);
             GameObject.Tag = "DenyButton";
         }
+
+        public override void Update(GameTime gameTime)
+        {
+            if (Hover)
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\DenyButtonV2Hover");
+            }
+            else
+            {
+                SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
+                spriteRenderer.SetSprite("Sprites\\DenyButtonV2");
+            }
+
+            Hover = false;
+        }
     }
 }

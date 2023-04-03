@@ -31,6 +31,7 @@ namespace GDPRManager.CommandPattern
             if (clickable.GameObject.Tag == "CaseStack" && !isCaseActive && GameWorld.Instance.CaseFileID <= 10)
             {
                 isCaseActive = true;
+                GameWorld.Instance.CaseFileStackSize--; 
 
                 caseFile = new GameObject();
                 caseFile = CaseFileFactory.Instance.Create(GameWorld.Instance.CaseFileID);
@@ -78,6 +79,11 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Destroy(approveButton); 
                 GameWorld.Instance.Destroy(denyButton); 
                 GameWorld.Instance.Destroy(stickyNote); 
+
+                if(GameWorld.Instance.CaseFileStackSize == 0)
+                {
+                    GameOver();
+                }
                 
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
@@ -94,9 +100,16 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Destroy(denyButton);
                 GameWorld.Instance.Destroy(stickyNote);
                 //Debug.WriteLine("Clicked on DenyButton");
+
+                if (GameWorld.Instance.CaseFileStackSize == 0)
+                {
+                    GameOver(); 
+                }
             }
-
-
+            else if(clickable.GameObject.Tag == "ExitButton" && !isCaseActive)
+            {
+                GameWorld.Instance.Exit(); 
+            }
         }
 
         private void SetStickyNoteText()
@@ -113,6 +126,15 @@ namespace GDPRManager.CommandPattern
             StickyNote note = stickyNote.GetComponent<StickyNote>() as StickyNote;
             note.Text = "";
             note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
+        }
+
+        private void GameOver()
+        {
+            GameObject exitButton = ButtonFactory.Instance.Create(4);
+            GameWorld.Instance.Instantiate(exitButton);
+
+            GameObject overlay = OverlayFactory.Instance.Create(1);
+            GameWorld.Instance.Instantiate(overlay);
         }
     }
 }
