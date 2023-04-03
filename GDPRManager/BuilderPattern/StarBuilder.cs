@@ -37,9 +37,9 @@ namespace GDPRManager.BuilderPattern
         /// </summary>
         private void BuildComponents()
         {
-            Vector2 starPosition = new Vector2(GameWorld.Instance.GraphicsDevice.Viewport.Width - 80, GameWorld.Instance.GraphicsDevice.Viewport.Height - 80);
+            Vector2 starPosition = new Vector2(320, 80);
 
-            gameObject.AddComponent(new Star(starID, starPosition - new Vector2(starID * 75, 0)));
+            gameObject.AddComponent(new Star(starID, starPosition - new Vector2(starID * 120, 0)));
             gameObject.AddComponent(new SpriteRenderer());
         }
 

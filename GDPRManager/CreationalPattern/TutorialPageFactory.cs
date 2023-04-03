@@ -56,11 +56,13 @@ namespace GDPRManager.CreationalPattern
 
             TextRenderer textRenderer = gameObject.GetComponent<TextRenderer>() as TextRenderer;
             textRenderer.FontName = "NormalTextFont";
+            textRenderer.Rotation = 0;
 
             switch (id)
             {
                 case 1:
-                    tutorialPage.Text = "Personfoelsom data:\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Personfoelsom data:\n" +
                                         "Race og etnisk oprindelse\n" +
                                         "Politisk overbevisning\n" +
                                         "Religioes eller filosofisk overbevisning\n" +
@@ -72,7 +74,8 @@ namespace GDPRManager.CreationalPattern
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 2:
-                    tutorialPage.Text = "Personfoelsom data:\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Personfoelsom data:\n" +
                                         "Race og etnisk oprindelse\n" +
                                         "Politisk overbevisning\n" +
                                         "Religioes eller filosofisk overbevisning\n" +
@@ -84,40 +87,48 @@ namespace GDPRManager.CreationalPattern
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 3:
-                    tutorialPage.Text = "Man er underlagt databeskyttelsesreglerne naar man\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Man er underlagt databeskyttelsesreglerne naar man\n" +
                                         "ikke agerer i arbejde eller organisationssammenhaeng\n" +
                                         "saa vidt man er en del af virksomheden eller organisationen.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 4:
-                    tutorialPage.Text = "Personfoelsom data kan udveksles internt i organisationen.";
+                    tutorialPage.Text = "Guide\n" +
+                                        "Personfoelsom data kan udveksles internt i organisationen.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 5:
-                    tutorialPage.Text = "Man maa opbevare person- og personfoelsom data ved samtykke.";
+                    tutorialPage.Text = "Guide\n" +
+                                        "Man maa opbevare person- og personfoelsom data ved samtykke.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 6:
-                    tutorialPage.Text = "Man maa kun behandle oplysninger, man har brug for\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Man maa kun behandle oplysninger, man har brug for\n" +
                                         "og naar man ikke har brug for dem laengere, skal de slettes.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 7:
-                    tutorialPage.Text = "Ved ophaevning af samtykke skal sletning af\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Ved ophaevning af samtykke skal sletning af\n" +
                                         "persondata og personfoelsom data ske hurtigst muligt.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 8:
-                    tutorialPage.Text = "Ved ophaevelse af en ansaettelseskontrakt ophaeves\n" +
+                    tutorialPage.Text = "Guide\n" +
+                                        "Ved ophaevelse af en ansaettelseskontrakt ophaeves\n" +
                                         "dermed ogsaa samtykke fra den tidligere ansatte.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 9:
-                    tutorialPage.Text = "Dataoverfoersel i blandt organisationer skal foregaa sikkert.";
+                    tutorialPage.Text = "Guide\n" +
+                                        "Dataoverfoersel i blandt organisationer skal foregaa sikkert.";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
                 case 10:
-                    tutorialPage.Text = "Ingen hjaelp at hente";
+                    tutorialPage.Text = "Guide\n" +
+                                        "Ingen hjaelp at hente";
                     textRenderer.SetText(tutorialPage.Text, gameObject.Transform.Position);
                     break;
             }
