@@ -39,6 +39,8 @@ namespace GDPRManager.ComponentPattern
         /// Property for getting or setting the position of the text
         /// </summary>
         public Vector2 Position { get; private set; }
+
+        public float Rotation { get; set; }
         #endregion
 
         #region methods
@@ -72,7 +74,7 @@ namespace GDPRManager.ComponentPattern
 
             Origin = new Vector2(textX, textY);
 
-            spriteBatch.DrawString(TextFont, Text, Position, Color.Black, 0f, Origin, 1f, SpriteEffects.None, LayerDepth);
+            spriteBatch.DrawString(TextFont, Text, Position, Color.Black, Rotation, Origin, 1f, SpriteEffects.None, LayerDepth);
         }
         #endregion
     }
