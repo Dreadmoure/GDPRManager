@@ -16,7 +16,7 @@ namespace GDPRManager.ComponentPattern
         {
             SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
             spriteRenderer.SetSprite("Sprites\\Overlay");
-            spriteRenderer.LayerDepth = 0.1f;
+            spriteRenderer.LayerDepth = 0.99f;
             spriteRenderer.Scale = 1f;
             GameObject.Transform.Position = new Vector2(GameWorld.ScreenSize.X / 2, GameWorld.ScreenSize.Y / 2);
         }

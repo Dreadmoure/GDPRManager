@@ -82,8 +82,7 @@ namespace GDPRManager.CommandPattern
 
                 if(GameWorld.Instance.CaseFileStackSize == 0)
                 {
-                    GameObject exitButton = ButtonFactory.Instance.Create(4);
-                    GameWorld.Instance.Instantiate(exitButton);
+                    GameOver();
                 }
                 
                 //Debug.WriteLine("Clicked on ApproveButton");
@@ -104,8 +103,7 @@ namespace GDPRManager.CommandPattern
 
                 if (GameWorld.Instance.CaseFileStackSize == 0)
                 {
-                    GameObject exitButton = ButtonFactory.Instance.Create(4);
-                    GameWorld.Instance.Instantiate(exitButton);
+                    GameOver(); 
                 }
             }
             else if(clickable.GameObject.Tag == "ExitButton" && !isCaseActive)
@@ -128,6 +126,15 @@ namespace GDPRManager.CommandPattern
             StickyNote note = stickyNote.GetComponent<StickyNote>() as StickyNote;
             note.Text = "";
             note.TextRenderer.SetText(note.Text, stickyNote.Transform.Position);
+        }
+
+        private void GameOver()
+        {
+            GameObject exitButton = ButtonFactory.Instance.Create(4);
+            GameWorld.Instance.Instantiate(exitButton);
+
+            GameObject overlay = OverlayFactory.Instance.Create(1);
+            GameWorld.Instance.Instantiate(overlay);
         }
     }
 }
