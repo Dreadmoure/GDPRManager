@@ -79,6 +79,12 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Destroy(approveButton); 
                 GameWorld.Instance.Destroy(denyButton); 
                 GameWorld.Instance.Destroy(stickyNote); 
+
+                if(GameWorld.Instance.CaseFileStackSize == 0)
+                {
+                    GameObject exitButton = ButtonFactory.Instance.Create(4);
+                    GameWorld.Instance.Instantiate(exitButton);
+                }
                 
                 //Debug.WriteLine("Clicked on ApproveButton");
             }
@@ -95,9 +101,17 @@ namespace GDPRManager.CommandPattern
                 GameWorld.Instance.Destroy(denyButton);
                 GameWorld.Instance.Destroy(stickyNote);
                 //Debug.WriteLine("Clicked on DenyButton");
+
+                if (GameWorld.Instance.CaseFileStackSize == 0)
+                {
+                    GameObject exitButton = ButtonFactory.Instance.Create(4);
+                    GameWorld.Instance.Instantiate(exitButton);
+                }
             }
-
-
+            else if(clickable.GameObject.Tag == "ExitButton" && !isCaseActive)
+            {
+                GameWorld.Instance.Exit(); 
+            }
         }
 
         private void SetStickyNoteText()

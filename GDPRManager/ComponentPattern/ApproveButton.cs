@@ -29,7 +29,7 @@ namespace GDPRManager.ComponentPattern
             if (Hover)
             {
                 SpriteRenderer spriteRenderer = GameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
-                spriteRenderer.SetSprite("Sprites\\StickyNote");
+                spriteRenderer.SetSprite("Sprites\\ApproveButtonV2Hover");
             }
             else
             {
