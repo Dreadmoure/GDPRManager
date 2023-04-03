@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GDPRManager.CommandPattern
 {
     /// <summary>
-    /// class for the KeyInfo
+    /// class for the KeyInfo...delete?
     /// </summary>
     public class KeyInfo
     {

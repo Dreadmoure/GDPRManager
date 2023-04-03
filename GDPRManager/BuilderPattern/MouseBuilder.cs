@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
+    /// <summary>
+    /// class for MouseBuilder
+    /// </summary>
     public class MouseBuilder : IBuilder
     {
         private GameObject gameObject;
 
+        #region methods
+        /// <summary>
+        /// method for Building a gameobject
+        /// </summary>
         public void BuildGameObject()
         {
             gameObject = new GameObject();
@@ -22,9 +29,14 @@ namespace GDPRManager.BuilderPattern
             collider.CollisionEvent.Attach(mouse); 
         }
 
+        /// <summary>
+        /// Method for returning the gameobject
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject GetResult()
         {
             return gameObject;
         }
+        #endregion
     }
 }

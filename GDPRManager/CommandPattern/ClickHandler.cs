@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CommandPattern
 {
+    /// <summary>
+    /// class for a ClickHandler
+    /// </summary>
     public class ClickHandler
     {
         #region singleton
@@ -29,11 +32,18 @@ namespace GDPRManager.CommandPattern
 
         private Dictionary<ButtonInfo, ICommand<Clickable>> mouseBinds = new Dictionary<ButtonInfo, ICommand<Clickable>>();
 
+        /// <summary>
+        /// private constructor for a clickHandler
+        /// </summary>
         private ClickHandler()
         {
             mouseBinds.Add(new ButtonInfo(Mouse.GetState().LeftButton), new ClickCommand());
         }
 
+        /// <summary>
+        /// Method for checking if the mousebutton is clicked
+        /// </summary>
+        /// <param name="clickable">the object which has the clickhandler</param>
         public void Execute(Clickable clickable)
         {
             MouseState mouseState = Mouse.GetState();

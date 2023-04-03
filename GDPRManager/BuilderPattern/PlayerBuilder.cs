@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace GDPRManager.BuilderPattern
 {
     /// <summary>
-    /// class for PlayerBuilder
+    /// class for PlayerBuilder...Delete?
     /// </summary>
     public class PlayerBuilder : IBuilder
     {

@@ -15,7 +15,7 @@ namespace GDPRManager.CommandPattern
         /// <summary>
         /// method for implementation
         /// </summary>
-        /// <param name="player"></param>
+        /// <param name="t">Generic type we want to pass in</param>
         public void Execute(T t);
     }
 }

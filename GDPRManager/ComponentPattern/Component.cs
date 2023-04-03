@@ -38,7 +38,7 @@ namespace GDPRManager.ComponentPattern
         /// <summary>
         /// handed down
         /// </summary>
-        /// <param name="gameTime"></param>
+        /// <param name="gameTime">we can access the gametime should we need it</param>
         public virtual void Update(GameTime gameTime)
         {
 
@@ -47,7 +47,7 @@ namespace GDPRManager.ComponentPattern
         /// <summary>
         /// handed down
         /// </summary>
-        /// <param name="spriteBatch"></param>
+        /// <param name="spriteBatch">we can acces the renderer through this</param>
         public virtual void Draw(SpriteBatch spriteBatch)
         {
 

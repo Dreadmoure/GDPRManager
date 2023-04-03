@@ -7,13 +7,25 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.ComponentPattern
 {
+    /// <summary>
+    /// class for a stickyNote
+    /// </summary>
     public class StickyNote : Component
     {
+        #region properties
+        /// <summary>
+        /// Property for getting and setting the text on the stickynote
+        /// </summary>
         public string Text { get; set; }
-        public TextRenderer TextRenderer { get; set; }
 
         /// <summary>
-        /// sets sprite and position
+        /// Property for getting and setting the textrenderer on the stickynote
+        /// </summary>
+        public TextRenderer TextRenderer { get; set; }
+        #endregion
+
+        /// <summary>
+        /// method setting things on the component when start is called
         /// </summary>
         public override void Start()
         {

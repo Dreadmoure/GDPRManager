@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CreationalPattern
 {
+    /// <summary>
+    /// class for making different StickyNotes
+    /// </summary>
     public class StickyNoteFactory : Factory
     {
         #region singleton
@@ -27,11 +30,18 @@ namespace GDPRManager.CreationalPattern
 
         private GameObject stickyNotePrototype;
 
+        /// <summary>
+        /// private constructor for stickyNoteFactory
+        /// </summary>
         private StickyNoteFactory()
         {
             CreateStickyNotePrototype();
         }
 
+        #region
+        /// <summary>
+        /// Method for creating a stickynote prototype
+        /// </summary>
         private void CreateStickyNotePrototype()
         {
             stickyNotePrototype = new GameObject();
@@ -41,6 +51,11 @@ namespace GDPRManager.CreationalPattern
             stickyNotePrototype.AddComponent(new TextRenderer());
         }
 
+        /// <summary>
+        /// Method for creating a gameobjecgt
+        /// </summary>
+        /// <param name="id">the type of stickynote we want to make</param>
+        /// <returns>GameObject</returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
@@ -48,5 +63,6 @@ namespace GDPRManager.CreationalPattern
 
             return gameObject;
         }
+        #endregion
     }
 }

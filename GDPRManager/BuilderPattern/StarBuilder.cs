@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.BuilderPattern
 {
+    /// <summary>
+    /// Class for StarBuilder
+    /// </summary>
     public class StarBuilder : IBuilder
     {
         #region fields
@@ -25,6 +28,9 @@ namespace GDPRManager.BuilderPattern
         }
 
         #region methods
+        /// <summary>
+        /// method for Building a gameobject
+        /// </summary>
         public void BuildGameObject()
         {
             gameObject = new GameObject();
@@ -43,6 +49,10 @@ namespace GDPRManager.BuilderPattern
             gameObject.AddComponent(new SpriteRenderer());
         }
 
+        /// <summary>
+        /// Method for returning the gameobject
+        /// </summary>
+        /// <returns>GameObject</returns>
         public GameObject GetResult()
         {
             return gameObject;

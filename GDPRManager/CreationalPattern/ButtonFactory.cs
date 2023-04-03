@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace GDPRManager.CreationalPattern
 {
+    /// <summary>
+    /// class for making buttons
+    /// </summary>
     public class ButtonFactory : Factory
     {
         #region singleton
@@ -25,11 +28,16 @@ namespace GDPRManager.CreationalPattern
         }
         #endregion
 
+        #region
         private GameObject approveButtonPrototype; 
         private GameObject denyButtonPrototype; 
         private GameObject nextButtonPrototype; 
-        private GameObject exitButtonPrototype; 
+        private GameObject exitButtonPrototype;
+        #endregion
 
+        /// <summary>
+        /// private constructor for buttonFactory
+        /// </summary>
         private ButtonFactory()
         {
             ApproveButtonPrototype();
@@ -38,6 +46,10 @@ namespace GDPRManager.CreationalPattern
             ExitButtonPrototype(); 
         }
 
+        #region methods
+        /// <summary>
+        /// Method for making a ApproveButton prototype
+        /// </summary>
         private void ApproveButtonPrototype()
         {
             approveButtonPrototype = new GameObject();
@@ -47,6 +59,9 @@ namespace GDPRManager.CreationalPattern
             approveButtonPrototype.AddComponent(new Clickable());
         }
 
+        /// <summary>
+        /// Method for making a DenyButton prototype
+        /// </summary>
         private void DenyButtonPrototype()
         {
             denyButtonPrototype = new GameObject();
@@ -56,6 +71,9 @@ namespace GDPRManager.CreationalPattern
             denyButtonPrototype.AddComponent(new Clickable());
         }
 
+        /// <summary>
+        /// Method for making a NextButton prototype
+        /// </summary>
         private void NextButtonPrototype()
         {
             nextButtonPrototype = new GameObject();
@@ -65,6 +83,9 @@ namespace GDPRManager.CreationalPattern
             nextButtonPrototype.AddComponent(new Clickable());
         }
 
+        /// <summary>
+        /// Method for making a ExitButton prototype
+        /// </summary>
         private void ExitButtonPrototype()
         {
             exitButtonPrototype = new GameObject();
@@ -74,6 +95,11 @@ namespace GDPRManager.CreationalPattern
             exitButtonPrototype.AddComponent(new Clickable());
         }
 
+        /// <summary>
+        /// Method for creating a gameobject
+        /// </summary>
+        /// <param name="id">the type of button we want to make</param>
+        /// <returns>GameObject</returns>
         public override GameObject Create(int id)
         {
             GameObject gameObject = new GameObject();
@@ -96,5 +122,6 @@ namespace GDPRManager.CreationalPattern
 
             return gameObject;
         }
+        #endregion
     }
 }
