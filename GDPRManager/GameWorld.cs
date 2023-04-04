@@ -110,9 +110,6 @@ namespace GDPRManager
                 stars[i].IsFull = false;
             }
 
-            //Player is added
-            Director playerDirector = new Director(new PlayerBuilder());
-            gameObjects.Add(playerDirector.Construct());
             //background is added
             Director backgroundDirector = new Director(new BackgroundBuilder());
             gameObjects.Add(backgroundDirector.Construct());
