@@ -83,7 +83,7 @@ namespace GDPRManager
 
             spriteBatch.DrawString(scoreTextFont, scoreText, new Vector2(GameWorld.ScreenSize.X / 1.15f, GameWorld.ScreenSize.Y / 1.1f), Color.White, 0f, new Vector2(scoreTextX, scoreTextY), 1f, SpriteEffects.None, 1f);
             spriteBatch.DrawString(scoreTextFont, caseStackSizeText, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), Color.Black, 0f, new Vector2(caseStackSizeTextX, caseStackSizeTextY), 1f, SpriteEffects.None, 0.9f);
-            spriteBatch.Draw(caseStackIndicator, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), null, Color.White, 0.1f, new Vector2(caseStackIndicator.Width/2, caseStackIndicator.Height/2), 0.3f, SpriteEffects.None, 0.89f);
+            spriteBatch.Draw(caseStackIndicator, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), null, Color.LightGreen, 0.1f, new Vector2(caseStackIndicator.Width/2, caseStackIndicator.Height/2), 0.3f, SpriteEffects.None, 0.89f);
         }
         #endregion
     }
