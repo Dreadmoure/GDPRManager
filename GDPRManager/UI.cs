@@ -57,7 +57,7 @@ namespace GDPRManager
         {
             caseStackIndicatorPos = new Vector2(GameWorld.ScreenSize.X / 4f, GameWorld.ScreenSize.Y / 1.125f);
             scoreTextFont = content.Load<SpriteFont>("Fonts\\ScoreTextFont");
-            caseStackIndicator = content.Load<Texture2D>("Sprites\\StackIndicator");
+            caseStackIndicator = content.Load<Texture2D>("Sprites\\StickyNote");
         }
 
         /// <summary>
@@ -81,9 +81,9 @@ namespace GDPRManager
             float caseStackSizeTextX = scoreTextFont.MeasureString(caseStackSizeText).X / 2;
             float caseStackSizeTextY = scoreTextFont.MeasureString(caseStackSizeText).Y / 2;
 
-            spriteBatch.DrawString(scoreTextFont, scoreText, new Vector2(GameWorld.ScreenSize.X / 1.15f, GameWorld.ScreenSize.Y / 1.1f), Color.Black, 0f, new Vector2(scoreTextX, scoreTextY), 1f, SpriteEffects.None, 1f);
+            spriteBatch.DrawString(scoreTextFont, scoreText, new Vector2(GameWorld.ScreenSize.X / 1.15f, GameWorld.ScreenSize.Y / 1.1f), Color.White, 0f, new Vector2(scoreTextX, scoreTextY), 1f, SpriteEffects.None, 1f);
             spriteBatch.DrawString(scoreTextFont, caseStackSizeText, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), Color.Black, 0f, new Vector2(caseStackSizeTextX, caseStackSizeTextY), 1f, SpriteEffects.None, 0.9f);
-            spriteBatch.Draw(caseStackIndicator, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), null, Color.White, 0f, new Vector2(caseStackIndicator.Width/2, caseStackIndicator.Height/2), 1f, SpriteEffects.None, 0.89f);
+            spriteBatch.Draw(caseStackIndicator, new Vector2(caseStackIndicatorPos.X, caseStackIndicatorPos.Y), null, Color.White, 0.1f, new Vector2(caseStackIndicator.Width/2, caseStackIndicator.Height/2), 0.3f, SpriteEffects.None, 0.89f);
         }
         #endregion
     }
