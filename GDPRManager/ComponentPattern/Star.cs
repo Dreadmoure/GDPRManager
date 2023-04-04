@@ -14,10 +14,9 @@ namespace GDPRManager.ComponentPattern
     public class Star : Component
     {
         #region fields
-        //array with 2 spaces of textures
         private SpriteRenderer spriteRenderer;
 
-        private static string[] spriteNames = new string[] { "Sprites\\StarFull", "Sprites\\StarEmpty" }; //change paths
+        private static string[] spriteNames = new string[] { "Sprites\\StarFull", "Sprites\\StarEmpty", "Sprites\\StarFullPurple" }; //change paths
         private Texture2D[] sprites = new Texture2D[spriteNames.Length];
 
         private Vector2 position;
@@ -77,9 +76,13 @@ namespace GDPRManager.ComponentPattern
             {
                 spriteRenderer.Sprite = sprites[0];
             }
-            else
+            else if(!IsFull)
             {
                 spriteRenderer.Sprite = sprites[1];
+            }
+            if(GameWorld.Instance.Score == 1000)
+            {
+                spriteRenderer.Sprite = sprites[2];
             }
         }
         #endregion

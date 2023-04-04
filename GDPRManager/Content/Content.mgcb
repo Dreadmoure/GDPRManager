@@ -106,6 +106,18 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/BackgroundV2.png
 
+#begin Sprites/BackgroundV3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/BackgroundV3.png
+
 #begin Sprites/BulletinBoard.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -285,6 +297,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/StarFull.png
+
+#begin Sprites/StarFullPurple.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Sprites/StarFullPurple.png
 
 #begin Sprites/StickyNote.png
 /importer:TextureImporter
